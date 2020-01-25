@@ -142,36 +142,8 @@
   </div>
 
   <script src="sweetalert2.all.min.js"></script>
-  <script>
-    function msg() {
-
-      swal({
-        title: 'Título',
-        text: 'Mensaje de texto',
-        html: '<p>Mensaje de texto con <strong>formato</strong>.</p>',
-        type: 'success',
-        timer: 3000,
-      });
-    }
-
-    function posicaoClique(evento) {
-      var canvas = document.getElementById("myCanvas");
-      var context = canvas.getContext("2d");
-      var posX = evento.clientX - canvas.offsetLeft; //  saber a distância do canvas em relação ao topo e à esquerda para que a posição seja relativa ao canvas e não à janela do navegação
-      var posY = evento.clientY - canvas.offsetTop;
-      console.clear();
-      console.log("Posição do clique: ", posX + "," + posY);
-      context.fillRect(posX, posY, 5, 5);
-    }
-    var canvas = document
-      .getElementById("myCanvas")
-      .addEventListener("click", posicaoClique, true); //pegando o elemento canvas
-    var context = canvas.getContext("2d"); //utilizado para recuperar o contexto de desenho, presente em todos os canvas
-      // aqui entrará o seu javascript que manipulará o elemento canvas
-      //
-  </script>
-
-
+  <script src="./funcoes.js"></script>
+  <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
 </body>
 
 </html>
