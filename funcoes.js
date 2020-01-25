@@ -4,7 +4,7 @@ var context = canvas.getContext("2d"); //utilizado para recuperar o contexto de 
 var i = 0;
 
 function posicaoClique(evento) {
-  if (i < 3) {
+  if (i < 2) {
     var posX = evento.clientX - canvas.offsetLeft; //  saber a distância do canvas em relação ao topo e à esquerda para que a posição seja relativa ao canvas e não à janela do navegação
     var posY = evento.clientY - canvas.offsetTop;
     console.clear();
@@ -17,16 +17,26 @@ function posicaoClique(evento) {
     });
     i++;
   }
-  //   if (i == 2) {
-  //     // fazer um swich aqui
-  //     context.clearRect(0, 0, 800, 550);
-  //     desenhaReta(canvas, context);
-  //     cord = [];
-  //     i = 0;
-  //   }
-  if (i == 3) {
-    context.clearRect(0, 0, 800, 550);
-    desenhaTriangulo(canvas, context);
+  // if (i == 2) {
+  //   // fazer um swich aqui
+  //   context.clearRect(0, 0, 800, 550);
+  //   desenhaReta(canvas, context);
+  //   cord = [];
+  //   i = 0;
+  // }
+  // if (i == 3) {
+  //   desenhaTriangulo(canvas, context);
+  //   cord = [];
+  //   i = 0;
+  // }
+  // if (i == 2) {
+  //   context.clearRect(0, 0, 800, 550);
+  //   desenhaCirculo(context);
+  //   cord = [];
+  //   i = 0;
+  // }
+  if (i == 2) {
+    desenhaQuadrado(context);
     cord = [];
     i = 0;
   }
@@ -47,6 +57,24 @@ function desenhaTriangulo(canvas, context) {
   context.lineTo(cord[4], cord[5]);
   context.closePath();
   context.stroke();
+}
+
+function desenhaCirculo(context) {
+  r = Math.sqrt(
+    Math.pow(cord[0] - cord[2], 2) + Math.pow(cord[1] - cord[3], 2)
+  );
+  console.log("r", r);
+  context.beginPath();
+  context.arc(cord[0], cord[3], r, 0, 2 * Math.PI, false);
+  context.stroke();
+  context.closePath();
+}
+
+function desenhaQuadrado(context) {
+  r = Math.sqrt(
+    Math.pow(cord[0] - cord[2], 2) + Math.pow(cord[1] - cord[3], 2)
+  );
+  context.strokeRect(r, r, r, r);
 }
 var canvas = document.getElementById("myCanvas");
 canvas.addEventListener("click", posicaoClique, true); //pegando o elemento canvas
