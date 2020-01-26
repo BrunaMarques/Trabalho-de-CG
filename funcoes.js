@@ -74,7 +74,7 @@ function desenhaQuadrado(context) {
   r = Math.sqrt(
     Math.pow(cord[0] - cord[2], 2) + Math.pow(cord[1] - cord[3], 2)
   );
-  context.strokeRect(r, r, r, r);
+  context.strokeRect(cord[0], cord[3], r, r);
 }
 var canvas = document.getElementById("myCanvas");
 canvas.addEventListener("click", posicaoClique, true); //pegando o elemento canvas
