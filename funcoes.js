@@ -1,3 +1,11 @@
+class forma {
+  constructor(nome, id, pontos) {
+    this.nome = nome;
+    this.id = id;
+    this.pontos = pontos;
+  }
+}
+
 var cord = [];
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d"); //utilizado para recuperar o contexto de desenho, presente em todos os canvas
@@ -29,17 +37,17 @@ function posicaoClique(evento) {
   //   cord = [];
   //   i = 0;
   // }
-  // if (i == 2) {
-  //   context.clearRect(0, 0, 800, 550);
-  //   desenhaCirculo(context);
-  //   cord = [];
-  //   i = 0;
-  // }
   if (i == 2) {
-    desenhaQuadrado(context);
+    // context.clearRect(0, 0, 800, 550);
+    desenhaCirculo(context);
     cord = [];
     i = 0;
   }
+  // if (i == 2) {
+  //   desenhaQuadrado(context);
+  //   cord = [];
+  //   i = 0;
+  // }
 }
 
 function desenhaReta(canvas, context) {
