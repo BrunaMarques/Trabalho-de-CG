@@ -5,14 +5,17 @@ class forma {
     this.pontos = pontos;
   }
 }
-
+var listaDesenho = [];
 var cord = [];
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d"); //utilizado para recuperar o contexto de desenho, presente em todos os canvas
 var i = 0;
-
+var id = 0;
+tamLista = listaDesenho.length;
 function posicaoClique(evento) {
-  if (i < 2) {
+  console.log(tamLista);
+
+  if (i < n) {
     var posX = evento.clientX - canvas.offsetLeft; //  saber a distância do canvas em relação ao topo e à esquerda para que a posição seja relativa ao canvas e não à janela do navegação
     var posY = evento.clientY - canvas.offsetTop;
     console.clear();
@@ -25,6 +28,31 @@ function posicaoClique(evento) {
     });
     i++;
   }
+
+  switch (op) {
+    case "reta":
+      console.log("AAASWUNS");
+      listaDesenho.push(new forma("reta", id++, cord));
+
+      break;
+    case "circulo":
+      listaDesenho.push(new forma("circulo", id++, cord));
+
+      break;
+    case "retangulo":
+      listaDesenho.push(new forma("retangulo", id++, cord));
+
+      break;
+    case "triangulo":
+      listaDesenho.push(new forma("triangulo", id++, cord));
+
+      break;
+  }
+  if (tamLista != listaDesenho.length) {
+    console.log("xnnmxmx");
+    desenhaLista();
+  }
+
   // if (i == 2) {
   //   // fazer um swich aqui
   //   context.clearRect(0, 0, 800, 550);
@@ -37,12 +65,12 @@ function posicaoClique(evento) {
   //   cord = [];
   //   i = 0;
   // }
-  if (i == 2) {
-    // context.clearRect(0, 0, 800, 550);
-    desenhaCirculo(context);
-    cord = [];
-    i = 0;
-  }
+  //   if (i == 2) {
+  //     // context.clearRect(0, 0, 800, 550);
+  //     desenhaCirculo(context);
+  //     cord = [];
+  //     i = 0;
+  //   }
   // if (i == 2) {
   //   desenhaQuadrado(context);
   //   cord = [];
@@ -50,40 +78,6 @@ function posicaoClique(evento) {
   // }
 }
 
-function desenhaReta(canvas, context) {
-  console.log("AAAAA");
-
-  context.moveTo(cord[0], cord[1]);
-  context.lineTo(cord[2], cord[3]);
-  context.stroke();
-}
-
-function desenhaTriangulo(canvas, context) {
-  context.beginPath();
-  context.moveTo(cord[0], cord[1]);
-  context.lineTo(cord[2], cord[3]);
-  context.lineTo(cord[4], cord[5]);
-  context.closePath();
-  context.stroke();
-}
-
-function desenhaCirculo(context) {
-  r = Math.sqrt(
-    Math.pow(cord[0] - cord[2], 2) + Math.pow(cord[1] - cord[3], 2)
-  );
-  console.log("r", r);
-  context.beginPath();
-  context.arc(cord[0], cord[3], r, 0, 2 * Math.PI, false);
-  context.stroke();
-  context.closePath();
-}
-
-function desenhaQuadrado(context) {
-  r = Math.sqrt(
-    Math.pow(cord[0] - cord[2], 2) + Math.pow(cord[1] - cord[3], 2)
-  );
-  context.strokeRect(cord[0], cord[3], r, r);
-}
 var canvas = document.getElementById("myCanvas");
 canvas.addEventListener("click", posicaoClique, true); //pegando o elemento canvas
 // context.clearRect(0, 0, 800, 550);
