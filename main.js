@@ -3,6 +3,7 @@ class forma {
     this.nome = nome;
     this.id = id;
     this.pontos = pontos;
+    this.select = false;
   }
 }
 var listaDesenho = [];
@@ -11,7 +12,7 @@ var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d"); //utilizado para recuperar o contexto de desenho, presente em todos os canvas
 var i = 0;
 var id = 0;
-tamLista = listaDesenho.length;
+tamLista = 0;
 function posicaoClique(evento) {
   console.log(tamLista);
 
@@ -31,51 +32,33 @@ function posicaoClique(evento) {
 
   switch (op) {
     case "reta":
-      console.log("AAASWUNS");
+      console.log("CASE1");
+
       listaDesenho.push(new forma("reta", id++, cord));
 
       break;
     case "circulo":
+      console.log("CASE2");
+
       listaDesenho.push(new forma("circulo", id++, cord));
 
       break;
     case "retangulo":
+      console.log("CASE3");
       listaDesenho.push(new forma("retangulo", id++, cord));
 
       break;
     case "triangulo":
+      console.log("CASE4");
       listaDesenho.push(new forma("triangulo", id++, cord));
 
       break;
   }
+
+  console.log("xnnmxmx = ", listaDesenho.length);
   if (tamLista != listaDesenho.length) {
-    console.log("xnnmxmx");
     desenhaLista();
   }
-
-  // if (i == 2) {
-  //   // fazer um swich aqui
-  //   context.clearRect(0, 0, 800, 550);
-  //   desenhaReta(canvas, context);
-  //   cord = [];
-  //   i = 0;
-  // }
-  // if (i == 3) {
-  //   desenhaTriangulo(canvas, context);
-  //   cord = [];
-  //   i = 0;
-  // }
-  //   if (i == 2) {
-  //     // context.clearRect(0, 0, 800, 550);
-  //     desenhaCirculo(context);
-  //     cord = [];
-  //     i = 0;
-  //   }
-  // if (i == 2) {
-  //   desenhaQuadrado(context);
-  //   cord = [];
-  //   i = 0;
-  // }
 }
 
 var canvas = document.getElementById("myCanvas");

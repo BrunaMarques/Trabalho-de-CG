@@ -35,3 +35,26 @@ function setCirculo() {
   i = 0;
   cord = [];
 }
+
+var circulo = document.getElementById("clear");
+circulo.addEventListener("click", setClear);
+
+function setClear() {
+  n = 0;
+  listaDesenho = [];
+  i = 0;
+  cord = [];
+  context.clearRect(0, 0, 800, 550);
+}
+
+var circulo = document.getElementById("selectAll");
+circulo.addEventListener("click", setSelectAll);
+
+function setSelectAll() {
+  i = 0;
+  cord = [];
+  for (j = 0; j < 3; j++) {
+    listaDesenho[j].select = true;
+  }
+  desenhaLista();
+}
