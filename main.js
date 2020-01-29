@@ -6,6 +6,7 @@ class forma {
     this.select = false;
   }
 }
+var desenhando = false;
 var listaDesenho = [];
 var cord = [];
 var canvas = document.getElementById("myCanvas");
@@ -15,49 +16,48 @@ var id = 0;
 tamLista = 0;
 function posicaoClique(evento) {
   console.log(tamLista);
+  if (desenhando == true) {
+    if (i < n) {
+      var posX = evento.clientX - canvas.offsetLeft; //  saber a distância do canvas em relação ao topo e à esquerda para que a posição seja relativa ao canvas e não à janela do navegação
+      var posY = evento.clientY - canvas.offsetTop;
+      console.clear();
+      console.log("Posição do clique: ", posX + "," + posY);
+      context.fillRect(posX, posY, 5, 5);
+      cord.push(posX);
+      cord.push(posY);
+      cord.forEach(function(item, indice, array) {
+        console.log(item, indice);
+      });
+      i++;
+    }
+    if (i == n) {
+      switch (op) {
+        case "reta":
+          console.log("CASE1");
 
-  if (i < n) {
-    var posX = evento.clientX - canvas.offsetLeft; //  saber a distância do canvas em relação ao topo e à esquerda para que a posição seja relativa ao canvas e não à janela do navegação
-    var posY = evento.clientY - canvas.offsetTop;
-    console.clear();
-    console.log("Posição do clique: ", posX + "," + posY);
-    context.fillRect(posX, posY, 5, 5);
-    cord.push(posX);
-    cord.push(posY);
-    cord.forEach(function(item, indice, array) {
-      console.log(item, indice);
-    });
-    i++;
-  }
+          listaDesenho.push(new forma("reta", id++, cord));
 
-  switch (op) {
-    case "reta":
-      console.log("CASE1");
+          break;
+        case "circulo":
+          console.log("CASE2");
 
-      listaDesenho.push(new forma("reta", id++, cord));
+          listaDesenho.push(new forma("circulo", id++, cord));
 
-      break;
-    case "circulo":
-      console.log("CASE2");
+          break;
+        case "retangulo":
+          console.log("CASE3");
+          listaDesenho.push(new forma("retangulo", id++, cord));
 
-      listaDesenho.push(new forma("circulo", id++, cord));
+          break;
+        case "triangulo":
+          console.log("CASE4");
+          listaDesenho.push(new forma("triangulo", id++, cord));
 
-      break;
-    case "retangulo":
-      console.log("CASE3");
-      listaDesenho.push(new forma("retangulo", id++, cord));
-
-      break;
-    case "triangulo":
-      console.log("CASE4");
-      listaDesenho.push(new forma("triangulo", id++, cord));
-
-      break;
-  }
-
-  console.log("xnnmxmx = ", listaDesenho.length);
-  if (tamLista != listaDesenho.length) {
-    desenhaLista();
+          break;
+      }
+      desenhaLista();
+      desenhando = false;
+    }
   }
 }
 

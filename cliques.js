@@ -6,6 +6,7 @@ function setReta() {
   op = "reta";
   i = 0;
   cord = [];
+  desenhando = true;
 }
 var triangulo = document.getElementById("triangulo");
 triangulo.addEventListener("click", setTriangulo);
@@ -15,15 +16,17 @@ function setTriangulo() {
   op = "triangulo";
   i = 0;
   cord = [];
+  desenhando = true;
 }
 var retangulo = document.getElementById("retangulo");
 retangulo.addEventListener("click", setRetangulo);
 
 function setRetangulo() {
-  n = 3;
+  n = 2;
   op = "retangulo";
   i = 0;
   cord = [];
+  desenhando = true;
 }
 
 var circulo = document.getElementById("circulo");
@@ -34,10 +37,11 @@ function setCirculo() {
   op = "circulo";
   i = 0;
   cord = [];
+  desenhando = true;
 }
 
-var circulo = document.getElementById("clear");
-circulo.addEventListener("click", setClear);
+var clear = document.getElementById("clear");
+clear.addEventListener("click", setClear);
 
 function setClear() {
   n = 0;
@@ -47,13 +51,14 @@ function setClear() {
   context.clearRect(0, 0, 800, 550);
 }
 
-var circulo = document.getElementById("selectAll");
-circulo.addEventListener("click", setSelectAll);
+var selectAll = document.getElementById("selectAll");
+selectAll.addEventListener("click", setSelectAll);
 
 function setSelectAll() {
+  console.log(listaDesenho);
   i = 0;
   cord = [];
-  for (j = 0; j < 3; j++) {
+  for (let j = 0; j < listaDesenho.length; j++) {
     listaDesenho[j].select = true;
   }
   desenhaLista();
