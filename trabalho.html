@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+<<<<<<< HEAD <head>
   <title>Trabalho de CG</title>
   <style>
     canvas {
       background: #ffffff;
       cursor: crosshair;
-      border: 2px solid #000000;
+      border: 1px solid #000000;
       box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
       position: fixed;
       bottom: 30px;
@@ -105,46 +104,44 @@
 
     }
   </style>
-</head>
+  </head>
 
-<body>
+  <body>
 
-  <div class="header">
-    <a id="Reta" onclick="desenhaReta()">Reta</a>
-    <a id="Triangulo" onclick="desenhaTriangulo()">Triangulo</a>
-    <a id="Retangulo">Retangulo</a>
-    <a id="Circulo">Circulo</a>
-    <a id="Clear">Clear</a>
-    <a id="Translacao">Translação</a>
-    <a id="Rotacao">Rotação</a>
-    <a id="Escala">M.Escala</a>
-    <a id="Zoom">Zoom</a>
-    <a id="Ajuda">Ajuda</a>
-    <a>Circulo</a>
-    <a>Circulo</a>
-    <a>Circulo</a>
-    <a>Circulo</a>
+    <div class="header">
+      <a id="Reta" onclick="desenhaReta()">Reta</a>
+      <a id="Triangulo" onclick="desenhaTriangulo()">Triangulo</a>
+      <a id="Retangulo">Retangulo</a>
+      <a id="Circulo">Circulo</a>
+      <a id="Clear">Clear</a>
+      <a id="Translacao">Translação</a>
+      <a id="Rotacao">Rotação</a>
+      <a id="Escala">M.Escala</a>
+      <a id="Zoom">Zoom</a>
+      <a id="Ajuda">Ajuda</a>
+      <a>Circulo</a>
+      <a>Circulo</a>
+      <a>Circulo</a>
+      <a>Circulo</a>
 
-  </div>
-
-  <p class="p1">x=0</p>
-  <p class="p2">y=0</p>
-  <canvas id="myCanvas" width="750" height="490">
-    <label for="myCanvas">asdasdsad</label>
-
+    </div>
+    <canvas id="myCanvas" width="750" height="490"></canvas>
+    <label for="myCanvas">Canvas</label>
     Canvas not supported
-  </canvas>
+    </canvas>
 
-  <div>
-    <form action="/action_page.php">
-      <input type="text" id="input" name="input" placeholder="Input...">
-      <input type="submit" value="Pronto">
-    </form>
-  </div>
+    <div id="xycoordinates" style="position: absolute; top: 52px; left: 40px;"></div>
 
-  <script src="sweetalert2.all.min.js"></script>
-  <script src="./funcoes.js"></script>
-  <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
-</body>
+    <div>
+      <form action="/action_page.php">
+        <input type="text" id="input" name="input" placeholder="Input...">
+        <input type="submit" value="Pronto">
+      </form>
+    </div>
+
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="./funcoes.js"></script>
+    <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
+  </body>
 
 </html>
