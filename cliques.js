@@ -64,5 +64,15 @@ function setSelectAll() {
   desenhaLista();
 }
 
-var selectAll = document.getElementById("select");
-selectAll.addEventListener("click", criarTabela(conteudo));
+var translacao = document.getElementById("translacao");
+translacao.addEventListener("click", setTranslacao);
+
+function setTranslacao() {
+  console.log("QUE MERDAA NÃO VAI PQ");
+  n = 2;
+  cordTranf = [];
+  op = "translacao";
+  i = 0;
+  cord = [];
+  desenhando = true;
+}

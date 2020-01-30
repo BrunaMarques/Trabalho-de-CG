@@ -9,7 +9,9 @@ class forma {
 var desenhando = false;
 var listaDesenho = [];
 var cord = [];
+var x = 0;
 var conteudo = [];
+var cordTranf = [];
 // conteudo.push(["forma", "cordenadas"]);
 var canvas = document.getElementById("myCanvas");
 canvas.width = 750;
@@ -31,7 +33,7 @@ function posicaoClique(evento) {
       context.fillRect(posX, posY, 5, 5);
       cord.push(posX);
       cord.push(posY);
-      cord.forEach(function (item, indice, array) {
+      cord.forEach(function(item, indice, array) {
         console.log(item, indice);
       });
       i++;
@@ -77,7 +79,15 @@ function posicaoClique(evento) {
           criarTabela(conteudo);
 
           break;
+        case "translacao":
+          cordTranf = cord;
+          console.log("CORDENADA TRANLACAO: ", cordTranf);
+          Ftranslacao();
+          break;
       }
+      console.log(x);
+      x = x + 1;
+      context.clearRect(0, 0, 800, 550);
       desenhaLista();
       desenhando = false;
     }
@@ -96,7 +106,12 @@ function getMousePos(canvas, evt) {
   };
 }
 
-canvas.addEventListener('mousemove', function (evt) {
-  var mousePos = getMousePos(canvas, evt);
-  document.getElementById("xycoordinates").innerHTML = 'Coordenadas: x(' + mousePos.x + ')' + ' , y(' + mousePos.y + ")";
-}, false);
+canvas.addEventListener(
+  "mousemove",
+  function(evt) {
+    var mousePos = getMousePos(canvas, evt);
+    document.getElementById("xycoordinates").innerHTML =
+      "Coordenadas: x(" + mousePos.x + ")" + " , y(" + mousePos.y + ")";
+  },
+  false
+);
