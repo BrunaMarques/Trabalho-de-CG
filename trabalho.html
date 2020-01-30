@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD <head>
+
+<head>
   <title>Trabalho de CG</title>
   <style>
     canvas {
@@ -9,7 +10,7 @@
       border: 1px solid #000000;
       box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
       position: fixed;
-      bottom: 30px;
+      bottom: 10px;
       left: 40px;
     }
 
@@ -35,7 +36,7 @@
     }
 
     .header {
-      background-color: #333;
+      background-color: rgb(42, 103, 216);
       overflow: hidden;
       position: fixed;
       top: 0px;
@@ -47,14 +48,14 @@
       float: left;
       color: #f2f2f2;
       text-align: center;
-      padding: 14px 16px;
+      padding: 10px 10px;
       text-decoration: none;
       font-size: 17px;
       top: 0px;
     }
 
     .header a:hover {
-      background-color: #ddd;
+      background-color: rgba(68, 211, 255, 0.863);
       color: black;
     }
 
@@ -90,58 +91,48 @@
     input[type=submit]:hover {
       background-color: #45a049;
     }
-
-    .p1 {
-      position: fixed;
-      left: 40px;
-      top: 40px;
-    }
-
-    .p2 {
-      position: fixed;
-      left: 5px;
-      top: 70px;
-
-    }
   </style>
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <div class="header">
-      <a id="Reta" onclick="desenhaReta()">Reta</a>
-      <a id="Triangulo" onclick="desenhaTriangulo()">Triangulo</a>
-      <a id="Retangulo">Retangulo</a>
-      <a id="Circulo">Circulo</a>
-      <a id="Clear">Clear</a>
-      <a id="Translacao">Translação</a>
-      <a id="Rotacao">Rotação</a>
-      <a id="Escala">M.Escala</a>
-      <a id="Zoom">Zoom</a>
-      <a id="Ajuda">Ajuda</a>
-      <a>Circulo</a>
-      <a>Circulo</a>
-      <a>Circulo</a>
-      <a>Circulo</a>
+  <div class="header">
+    <a id="reta" onclick="desenhaReta()">Reta</a>
+    <a id="triangulo" onclick="desenhaTriangulo()">Triangulo</a>
+    <a id="retangulo">Retangulo</a>
+    <a id="circulo">Circulo</a>
+    <a id="clear">Clear</a>
+    <a id="translacao">Translação</a>
+    <a id="rotacao">Rotação</a>
+    <a id="escala">M.Escala</a>
+    <a id="zoom">Zoom</a>
+    <a id="ajuda">Ajuda</a>
+    <a id="selectAll">Selecionar tudo</a>
+    <a id="select">Selecionar</a>
 
-    </div>
-    <canvas id="myCanvas" width="750" height="490"></canvas>
-    <label for="myCanvas">Canvas</label>
-    Canvas not supported
-    </canvas>
+  </div>
 
-    <div id="xycoordinates" style="position: absolute; top: 52px; left: 40px;"></div>
+  <canvas id="myCanvas" width="750" height="490"></canvas>
+  <label for="myCanvas">Canvas</label>
+  Canvas not supported
+  </canvas>
+  <span style='font-size:50px;position: absolute; top: 52px; left: 23px;'>&#8594;</span>
+  <span style='font-size:20px;position: absolute; top: 72px; left: 70px;'>x</span>
+  <span style='font-size:50px;position: absolute; top: 72px; left: 7px;'>&#8595;</span>
+  <span style='font-size:20px;position: absolute; top: 120px; left: 22px;'>y</span>
+  <div id="xycoordinates" style="position: absolute; top: 52px; left: 25px;"></div>
 
-    <div>
-      <form action="/action_page.php">
-        <input type="text" id="input" name="input" placeholder="Input...">
-        <input type="submit" value="Pronto">
-      </form>
-    </div>
+  <div>
+    <form action="/action_page.php">
+      <input type="text" id="input" name="input" placeholder="Input...">
+      <input type="submit" value="Pronto">
+    </form>
+  </div>
 
-    <script src="sweetalert2.all.min.js"></script>
-    <script src="./funcoes.js"></script>
-    <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
-  </body>
+  <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
+  <script src="./main.js"></script>
+  <script src="./cliques.js"></script>
+  <script src="./funcoesDesenho.js"></script>
+</body>
 
 </html>
