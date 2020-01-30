@@ -63,3 +63,6 @@ function setSelectAll() {
   }
   desenhaLista();
 }
+
+var selectAll = document.getElementById("select");
+selectAll.addEventListener("click", criarTabela(conteudo));

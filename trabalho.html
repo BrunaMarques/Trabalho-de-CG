@@ -10,8 +10,8 @@
       border: 1px solid #000000;
       box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
       position: fixed;
-      bottom: 10px;
-      left: 40px;
+      bottom: 5px;
+      left: 50px;
     }
 
     .button {
@@ -37,15 +37,18 @@
 
     .header {
       background-color: rgb(42, 103, 216);
+      transition: 0.5s;
       overflow: hidden;
       position: fixed;
       top: 0px;
       right: 0px;
       left: 0px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
     .header a {
       float: left;
+      transition: 0.5s;
       color: #f2f2f2;
       text-align: center;
       padding: 10px 10px;
@@ -56,6 +59,8 @@
 
     .header a:hover {
       background-color: rgba(68, 211, 255, 0.863);
+
+      cursor: pointer;
       color: black;
     }
 
@@ -112,15 +117,17 @@
 
   </div>
 
+  <div class="teste" id="selectOne"></div>
+
   <canvas id="myCanvas" width="750" height="490"></canvas>
   <label for="myCanvas">Canvas</label>
   Canvas not supported
   </canvas>
-  <span style='font-size:50px;position: absolute; top: 52px; left: 23px;'>&#8594;</span>
-  <span style='font-size:20px;position: absolute; top: 72px; left: 70px;'>x</span>
-  <span style='font-size:50px;position: absolute; top: 72px; left: 7px;'>&#8595;</span>
-  <span style='font-size:20px;position: absolute; top: 120px; left: 22px;'>y</span>
-  <div id="xycoordinates" style="position: absolute; top: 52px; left: 25px;"></div>
+  <span style='font-size:50px;position: absolute; top: 45px; left: 23px;'>&#8594;</span>
+  <span style='font-size:20px;position: absolute; top: 65px; left: 70px;'>x</span>
+  <span style='font-size:50px;position: absolute; top: 65px; left: 7px;'>&#8595;</span>
+  <span style='font-size:20px;position: absolute; top: 115px; left: 22px;'>y</span>
+  <div id="xycoordinates" style="position: absolute; top: 50px; left: 25px;"></div>
 
   <div>
     <form action="/action_page.php">
@@ -133,6 +140,7 @@
   <script src="./main.js"></script>
   <script src="./cliques.js"></script>
   <script src="./funcoesDesenho.js"></script>
+  <script src="./tabela.js"></script>
 </body>
 
 </html>
