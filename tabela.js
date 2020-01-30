@@ -1,34 +1,18 @@
-console.log(conteudo);
-function criarTabela(conteudo) {
-  console.log("TABELAAAAAAAAAAA");
-  console.log(conteudo);
-  var tabela = document.createElement("table");
-  var thead = document.createElement("thead");
-  var tbody = document.createElement("tbody");
-  var thd = function (k) {
-    return k == 0 ? "th" : "td";
-  };
-  for (var k = 0; k < conteudo.length; k++) {
-    var tr = document.createElement("tr");
-    for (var o = 0; o < conteudo[k].length; o++) {
-      var t = document.createElement(thd(k));
-      var texto = document.createTextNode(conteudo[k][o]);
-      t.appendChild(texto);
+const table = document.getElementById("selectOne");
+var tr = document.createElement("tr");
+var td = document.createElement("td");
 
-      tr.appendChild(t);
 
-    }
-    console.log("tr" + tr);
-    k == 0 ? thead.appendChild(tr) : tbody.appendChild(tr);
-    console.log("tb: ", +tbody);
-    console.log("th: ", +thead);
+function limparTabela(table) {
+  while (table.firstChild) {
+    table.removeChild(table.firstChild);
   }
-  tabela.appendChild(thead);
-  tabela.appendChild(tbody);
-  console.log("tabela: ", +tbody);
-  return tabela;
 }
 
-document
-  .getElementById("selectOne")
-  .appendChild(criarTabela(conteudo)).innerHTML = "tabela: " + tabela;
+function criarTabela(listaDesenho) {
+  limparTabela(table);
+  for (j = 0; j < listaDesenho.length; j++) {
+    console.log("aqui", listaDesenho)
+    table.innerHTML += `<table><tr> <td> Objeto: ${listaDesenho[j].id + "=>" + listaDesenho[j].nome}`;
+  }
+}

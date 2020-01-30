@@ -14,8 +14,7 @@ var conteudo = [];
 var canvas = document.getElementById("myCanvas");
 canvas.width = 750;
 canvas.height = 490;
-canvas.style.width = 375;
-canvas.style.height = 245;
+
 var context = canvas.getContext("2d"); //utilizado para recuperar o contexto de desenho, presente em todos os canvas
 var i = 0;
 var id = 0;
@@ -43,7 +42,7 @@ function posicaoClique(evento) {
 
           listaDesenho.push(new forma("reta", id++, cord));
           conteudo.push(["reta", cord[0], cord[1], cord[2], cord[3]]);
-          criarTabela(conteudo);
+          //criarTabela(conteudo);
           console.log(conteudo);
 
           break;
@@ -52,14 +51,14 @@ function posicaoClique(evento) {
 
           listaDesenho.push(new forma("circulo", id++, cord));
           conteudo.push(["circulo", cord[0], cord[1], cord[2], cord[3]]);
-          criarTabela(conteudo);
+          //criarTabela(conteudo);
 
           break;
         case "retangulo":
           console.log("CASE3");
           listaDesenho.push(new forma("retangulo", id++, cord));
           conteudo.push(["retangulo", cord[0], cord[1], cord[2], cord[3]]);
-          criarTabela(conteudo);
+          //criarTabela(conteudo);
 
           break;
         case "triangulo":
@@ -74,11 +73,11 @@ function posicaoClique(evento) {
             cord[4],
             cord[5]
           ]);
-          criarTabela(conteudo);
 
           break;
       }
       desenhaLista();
+      criarTabela(listaDesenho);
       desenhando = false;
     }
   }
@@ -91,8 +90,8 @@ canvas.addEventListener("click", posicaoClique, true); //pegando o elemento canv
 function getMousePos(canvas, evt) {
   var rect = canvas.getBoundingClientRect();
   return {
-    x: evt.clientX - rect.left,
-    y: evt.clientY - rect.top
+    x: evt.clientX - canvas.offsetLeft,
+    y: evt.clientY - canvas.offsetTop
   };
 }
 

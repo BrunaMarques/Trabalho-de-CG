@@ -45,9 +45,10 @@ clear.addEventListener("click", setClear);
 
 function setClear() {
   n = 0;
-  listaDesenho = [];
+  listaDesenho = []; //lembrar de limpar os nomes e id dos objetos
   i = 0;
   cord = [];
+  id = 0;
   context.clearRect(0, 0, 800, 550);
 }
 
@@ -64,5 +65,5 @@ function setSelectAll() {
   desenhaLista();
 }
 
-var selectAll = document.getElementById("select");
-selectAll.addEventListener("click", criarTabela(conteudo));
+// var selectAll = document.getElementById("select");
+// selectAll.addEventListener("click", criarTabela(conteudo));
