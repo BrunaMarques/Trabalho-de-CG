@@ -17,8 +17,6 @@ function multMatriz(a, b) {
 }
 function Ftranslacao() {
   R = [];
-  console.log("TRANSLACAOOOOOOO");
-
   for (let j = 0; j < listaDesenho.length; j++) {
     if (listaDesenho[j].select == true) {
       for (let k = 0; k < listaDesenho[j].pontos.length; k += 2) {
@@ -40,8 +38,33 @@ function Ftranslacao() {
         listaDesenho[j].pontos[k] = R[0];
         listaDesenho[j].pontos[k + 1] = R[1];
       }
+      listaDesenho[j].select == false;
     }
   }
-  console.log("MATRIZ FINAL: ", R);
+  desenhaLista();
+}
+
+function MEscala(Sx, Sy) {
+  R = [];
+  for (let j = 0; j < listaDesenho.length; j++) {
+    if (listaDesenho[j].select == true) {
+      for (let k = 0; k < listaDesenho[j].pontos.length; k += 2) {
+        let M1 = [
+          [Sx, 0, 0],
+          [0, Sy, 0],
+          [0, 0, 1]
+        ];
+        let M2 = [
+          [listaDesenho[j].pontos[k]],
+          [listaDesenho[j].pontos[k + 1]],
+          [1]
+        ];
+        R = multMatriz(M1, M2);
+        listaDesenho[j].pontos[k] = R[0];
+        listaDesenho[j].pontos[k + 1] = R[1];
+      }
+      listaDesenho[j].select == false;
+    }
+  }
   desenhaLista();
 }

@@ -45,7 +45,6 @@ function posicaoClique(evento) {
 
           listaDesenho.push(new forma("reta", id++, cord));
           conteudo.push(["reta", cord[0], cord[1], cord[2], cord[3]]);
-          criarTabela(conteudo);
           console.log(conteudo);
 
           break;
@@ -54,14 +53,12 @@ function posicaoClique(evento) {
 
           listaDesenho.push(new forma("circulo", id++, cord));
           conteudo.push(["circulo", cord[0], cord[1], cord[2], cord[3]]);
-          criarTabela(conteudo);
 
           break;
         case "retangulo":
           console.log("CASE3");
           listaDesenho.push(new forma("retangulo", id++, cord));
           conteudo.push(["retangulo", cord[0], cord[1], cord[2], cord[3]]);
-          criarTabela(conteudo);
 
           break;
         case "triangulo":
@@ -76,12 +73,12 @@ function posicaoClique(evento) {
             cord[4],
             cord[5]
           ]);
-          criarTabela(conteudo);
 
           break;
         case "translacao":
           cordTranf = cord;
           console.log("CORDENADA TRANLACAO: ", cordTranf);
+          cord = [];
           Ftranslacao();
           break;
       }
