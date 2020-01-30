@@ -9,6 +9,8 @@ class forma {
 var desenhando = false;
 var listaDesenho = [];
 var cord = [];
+var conteudo = [];
+// conteudo.push(["forma", "cordenadas"]);
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d"); //utilizado para recuperar o contexto de desenho, presente em todos os canvas
 var i = 0;
@@ -36,22 +38,39 @@ function posicaoClique(evento) {
           console.log("CASE1");
 
           listaDesenho.push(new forma("reta", id++, cord));
+          conteudo.push(["reta", cord[0], cord[1], cord[2], cord[3]]);
+          criarTabela(conteudo);
+          console.log(conteudo);
 
           break;
         case "circulo":
           console.log("CASE2");
 
           listaDesenho.push(new forma("circulo", id++, cord));
+          conteudo.push(["circulo", cord[0], cord[1], cord[2], cord[3]]);
+          criarTabela(conteudo);
 
           break;
         case "retangulo":
           console.log("CASE3");
           listaDesenho.push(new forma("retangulo", id++, cord));
+          conteudo.push(["retangulo", cord[0], cord[1], cord[2], cord[3]]);
+          criarTabela(conteudo);
 
           break;
         case "triangulo":
           console.log("CASE4");
           listaDesenho.push(new forma("triangulo", id++, cord));
+          conteudo.push([
+            "triangulo",
+            cord[0],
+            cord[1],
+            cord[2],
+            cord[3],
+            cord[4],
+            cord[5]
+          ]);
+          criarTabela(conteudo);
 
           break;
       }
