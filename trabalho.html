@@ -96,6 +96,11 @@
     input[type=submit]:hover {
       background-color: #45a049;
     }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #ddf;
+    }
   </style>
 </head>
 
@@ -117,8 +122,6 @@
 
   </div>
 
-  <div class="teste" id="selectOne"></div>
-
   <canvas id="myCanvas" width="750" height="490"></canvas>
   <label for="myCanvas">Canvas</label>
   Canvas not supported
@@ -128,6 +131,12 @@
   <span style='font-size:50px;position: absolute; top: 65px; left: 7px;'>&#8595;</span>
   <span style='font-size:20px;position: absolute; top: 115px; left: 22px;'>y</span>
   <div id="xycoordinates" style="position: absolute; top: 50px; left: 25px;"></div>
+  <div style="position:absolute; bottom: 100px; right: 250px; ">
+    <table>
+      <th>Objetos:</th>
+      <tbody class="table" id="selectOne"></tbody>
+    </table>
+  </div>
 
   <div>
     <form action="/action_page.php">

@@ -45,14 +45,27 @@ clear.addEventListener("click", setClear);
 
 function setClear() {
   n = 0;
-  listaDesenho = [];
+  listaDesenho = []; //lembrar de limpar os nomes e id dos objetos
   i = 0;
   cord = [];
-  context.clearRect(0, 0, 800, 550);
+  id = 0;
+  context.clearRect(0, 0, 750, 490);
 }
 
 var selectAll = document.getElementById("selectAll");
 selectAll.addEventListener("click", setSelectAll);
+
+function selectOne(td) {
+  console.log("aaaa", td.id)
+  i = 0;
+  for (let k = 0; k < listaDesenho.length; k++) {
+    if (listaDesenho[k].id == td.id) {
+      listaDesenho[k].select = true;
+    }
+  }
+  desenhaLista();
+}
+
 
 function setSelectAll() {
   i = 0;

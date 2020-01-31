@@ -16,8 +16,7 @@ var cordTranf = [];
 var canvas = document.getElementById("myCanvas");
 canvas.width = 750;
 canvas.height = 490;
-canvas.style.width = 375;
-canvas.style.height = 245;
+
 var context = canvas.getContext("2d"); //utilizado para recuperar o contexto de desenho, presente em todos os canvas
 var i = 0;
 var id = 0;
@@ -34,7 +33,7 @@ function posicaoClique(evento) {
       context.fillRect(posX, posY, 5, 5);
       cord.push(posX);
       cord.push(posY);
-      cord.forEach(function(item, indice, array) {
+      cord.forEach(function (item, indice, array) {
         console.log(item, indice);
       });
       i++;
@@ -90,31 +89,32 @@ function posicaoClique(evento) {
       }
       console.log(x);
       x = x + 1;
-      context.clearRect(0, 0, 800, 550);
+      context.clearRect(0, 0, 750, 490);
       desenhaLista();
+      criarTabela(listaDesenho);
       desenhando = false;
     }
   }
 }
 
-var canvas = document.getElementById("myCanvas");
 canvas.addEventListener("click", posicaoClique, true); //pegando o elemento canvas
 // context.clearRect(0, 0, 800, 550);
 
 function getMousePos(canvas, evt) {
   var rect = canvas.getBoundingClientRect();
   return {
-    x: evt.clientX - rect.left,
-    y: evt.clientY - rect.top
+    x: evt.clientX - canvas.offsetLeft,
+    y: evt.clientY - canvas.offsetTop
   };
 }
 
 canvas.addEventListener(
   "mousemove",
-  function(evt) {
+  function (evt) {
     var mousePos = getMousePos(canvas, evt);
     document.getElementById("xycoordinates").innerHTML =
       "Coordenadas: x(" + mousePos.x + ")" + " , y(" + mousePos.y + ")";
   },
   false
 );
+
