@@ -49,11 +49,13 @@ function setClear() {
   i = 0;
   cord = [];
   id = 0;
+  for (let j = 0; j < listaDesenho.length; j++) {
+    listaDesenho[j].select = false;
+    context.strokeStyle = "black";
+  }
   context.clearRect(0, 0, 750, 490);
+  desenhaLista();
 }
-
-var selectAll = document.getElementById("selectAll");
-selectAll.addEventListener("click", setSelectAll);
 
 function selectOne(td) {
   console.log("aaaa", td.id);
@@ -66,12 +68,16 @@ function selectOne(td) {
   desenhaLista();
 }
 
+var selectAll = document.getElementById("selectAll");
+selectAll.addEventListener("click", setSelectAll);
+
 function setSelectAll() {
   i = 0;
   cord = [];
   n = 0;
   for (let j = 0; j < listaDesenho.length; j++) {
     listaDesenho[j].select = true;
+    context.strokeStyle = "red";
   }
   desenhaLista();
 }
