@@ -20,6 +20,7 @@ canvas.height = 490;
 var context = canvas.getContext("2d"); //utilizado para recuperar o contexto de desenho, presente em todos os canvas
 var i = 0;
 var id = 0;
+var O = 0;
 tamLista = 0;
 function posicaoClique(evento) {
   console.log(tamLista);
@@ -44,7 +45,6 @@ function posicaoClique(evento) {
 
           listaDesenho.push(new forma("reta", id++, cord));
           conteudo.push(["reta", cord[0], cord[1], cord[2], cord[3]]);
-          //criarTabela(conteudo);
           console.log(conteudo);
 
           break;
@@ -53,14 +53,12 @@ function posicaoClique(evento) {
 
           listaDesenho.push(new forma("circulo", id++, cord));
           conteudo.push(["circulo", cord[0], cord[1], cord[2], cord[3]]);
-          //criarTabela(conteudo);
 
           break;
         case "retangulo":
           console.log("CASE3");
           listaDesenho.push(new forma("retangulo", id++, cord));
           conteudo.push(["retangulo", cord[0], cord[1], cord[2], cord[3]]);
-          //criarTabela(conteudo);
 
           break;
         case "triangulo":
@@ -79,8 +77,13 @@ function posicaoClique(evento) {
           break;
         case "translacao":
           cordTranf = cord;
-          console.log("CORDENADA TRANLACAO: ", cordTranf);
+          cord = [];
           Ftranslacao();
+          break;
+        case "rotacao":
+          cordTranf = cord;
+          cord = [];
+          Rotacao(O);
           break;
       }
       console.log(x);
