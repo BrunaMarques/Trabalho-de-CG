@@ -97,9 +97,24 @@
       background-color: #45a049;
     }
 
-    tbody tr:hover {
+    tbody tr :hover {
       cursor: pointer;
       background-color: #ddf;
+    }
+
+
+    table,
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    th {
+      background-color: cornflowerblue;
+      width: 95px;
     }
   </style>
 </head>
@@ -131,12 +146,13 @@
   <span style='font-size:50px;position: absolute; top: 65px; left: 7px;'>&#8595;</span>
   <span style='font-size:20px;position: absolute; top: 115px; left: 22px;'>y</span>
   <div id="xycoordinates" style="position: absolute; top: 50px; left: 25px;"></div>
-  <div style="position:absolute; bottom: 100px; right: 250px; ">
-    <table>
-      <th>Objetos:</th>
-      <tbody class="table" id="selectOne"></tbody>
+  <div1>
+    <table class="w3-table-all w3-centered" height: 1000px>
+      <th style=" position:fixed; bottom: 300px; right: 250px;">Objetos:</th>
+      <tbody class="table" id="selectOne" style="overflow-y:auto; position:absolute; top: 300px; right: 250px;">
+      </tbody>
     </table>
-  </div>
+  </div1>
 
   <div>
     <form action="/action_page.php">
