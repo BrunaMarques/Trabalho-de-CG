@@ -33,7 +33,7 @@ function posicaoClique(evento) {
       context.fillRect(posX, posY, 5, 5);
       cord.push(posX);
       cord.push(posY);
-      cord.forEach(function(item, indice, array) {
+      cord.forEach(function (item, indice, array) {
         console.log(item, indice);
       });
       i++;
@@ -95,7 +95,7 @@ function getMousePos(canvas, evt) {
 
 canvas.addEventListener(
   "mousemove",
-  function(evt) {
+  function (evt) {
     var mousePos = getMousePos(canvas, evt);
     document.getElementById("xycoordinates").innerHTML =
       "Coordenadas: x(" + mousePos.x + ")" + " , y(" + mousePos.y + ")";

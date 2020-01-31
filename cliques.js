@@ -148,6 +148,8 @@ function setRotacao() {
     desenhando = true;
   }
 }
+var zoomExtend = document.getElementById("zoomExtend");
+zoomExtend.addEventListener("click", zoomExtend);
 
 function setAjuda() {
   alert(

@@ -194,7 +194,7 @@ var minY = 0;
 
 function pegaMaxMin() {
 
-  for (var w = 0; w < listaDesenho.length; w++) {
+  for (const w = 0; w < listaDesenho.length; w++) {
     if (listaDesenho[w].nome == "reta") {
       if (listaDesenho[w].pontos[0] > maxX) {
         maxX = listaDesenho[w].pontos[0];
@@ -296,10 +296,9 @@ function zoomExtend() {
   unico = [];
   for (let k = 0; k < listaDesenho.length; k++) {
     unico = {
-      pegaMaxMin();
-        maxX: listaDesenho[k];
-    }
-  }
-}
+      pegaMaxMin()
 
+    }
+    console.log(unico);
+  }
 }
