@@ -63,9 +63,8 @@ function desenhaRetangulo(context, pontos, select) {
 }
 
 function desenhaLista() {
-  context.clearRect(0, 0, 800, 550);
-  console.log("lista", listaDesenho);
-  for (j = 0; j < listaDesenho.length; j++) {
+  context.clearRect(0, 0, 750, 490);
+  for (let j = 0; j < listaDesenho.length; j++) {
     if (listaDesenho[j].nome == "reta") {
       desenhaReta(context, listaDesenho[j].pontos, listaDesenho[j].select);
     } else if (listaDesenho[j].nome == "circulo") {

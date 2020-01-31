@@ -49,11 +49,23 @@ function setClear() {
   i = 0;
   cord = [];
   id = 0;
-  context.clearRect(0, 0, 800, 550);
+  context.clearRect(0, 0, 750, 490);
 }
 
 var selectAll = document.getElementById("selectAll");
 selectAll.addEventListener("click", setSelectAll);
+
+function selectOne(td) {
+  console.log("aaaa", td.id)
+  i = 0;
+  for (let k = 0; k < listaDesenho.length; k++) {
+    if (listaDesenho[k].id == td.id) {
+      listaDesenho[k].select = true;
+    }
+  }
+  desenhaLista();
+}
+
 
 function setSelectAll() {
   console.log(listaDesenho);
@@ -65,5 +77,15 @@ function setSelectAll() {
   desenhaLista();
 }
 
-// var selectAll = document.getElementById("select");
-// selectAll.addEventListener("click", criarTabela(conteudo));
+var translacao = document.getElementById("translacao");
+translacao.addEventListener("click", setTranslacao);
+
+function setTranslacao() {
+  console.log("QUE MERDAA NÃO VAI PQ");
+  n = 2;
+  cordTranf = [];
+  op = "translacao";
+  i = 0;
+  cord = [];
+  desenhando = true;
+}

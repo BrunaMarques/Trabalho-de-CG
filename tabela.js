@@ -1,18 +1,23 @@
 const table = document.getElementById("selectOne");
-var tr = document.createElement("tr");
-var td = document.createElement("td");
-
+var linhas = table.getElementsByTagName("tr");
 
 function limparTabela(table) {
-  while (table.firstChild) {
-    table.removeChild(table.firstChild);
-  }
+  table.innerHTML = "";
 }
 
 function criarTabela(listaDesenho) {
   limparTabela(table);
-  for (j = 0; j < listaDesenho.length; j++) {
+  for (let j = 0; j < listaDesenho.length; j++) {
     console.log("aqui", listaDesenho)
-    table.innerHTML += `<table><tr> <td> Objeto: ${listaDesenho[j].id + "=>" + listaDesenho[j].nome}`;
+    table.innerHTML += `
+    <tr>
+    <td id = ${j} onclick=selectOne(this) >${listaDesenho[j].id + "_" + listaDesenho[j].nome}</td>
+    </tr>`;
   }
 }
+
+
+
+
+
+
