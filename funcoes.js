@@ -16,27 +16,55 @@ function multMatriz(a, b) {
   return m;
 }
 function Ftranslacao() {
+  console.log("Translaçãaaaaaaaaao");
   R = [];
+  let M2;
+  let dx = cordTranf[2] - cordTranf[0];
+  let dy = cordTranf[3] - cordTranf[1];
+  let M1 = [
+    [1, 0, dx],
+    [0, 1, dy],
+    [0, 0, 1]
+  ];
   for (let j = 0; j < listaDesenho.length; j++) {
     if (listaDesenho[j].select == true) {
-      for (let k = 0; k < listaDesenho[j].pontos.length; k += 2) {
-        let dx = cordTranf[2] - cordTranf[0];
-
-        let dy = cordTranf[1] - cordTranf[3];
-
-        let M1 = [
-          [1, 0, dx],
-          [0, 1, dy],
-          [0, 0, 1]
+      if (listaDesenho[j].nome == "triangulo") {
+        M2 = [
+          [
+            listaDesenho[j].pontos[0],
+            listaDesenho[j].pontos[2],
+            listaDesenho[j].pontos[4]
+          ],
+          [
+            listaDesenho[j].pontos[1],
+            listaDesenho[j].pontos[3],
+            listaDesenho[j].pontos[5]
+          ],
+          [1, 1, 1]
         ];
-        let M2 = [
-          [listaDesenho[j].pontos[k]], //Arrumar essa merda que eu fiz, to pegando errado, tem que ser a linha e estou passando a coluna
-          [listaDesenho[j].pontos[k + 1]],
-          [1]
+      } else {
+        M2 = [
+          [listaDesenho[j].pontos[0], listaDesenho[j].pontos[2]],
+          [listaDesenho[j].pontos[1], listaDesenho[j].pontos[3]],
+          [1, 1, 1]
         ];
-        R = multMatriz(M1, M2);
-        listaDesenho[j].pontos[k] = R[0];
-        listaDesenho[j].pontos[k + 1] = R[1];
+      }
+      console.log("M1 = ", M1);
+      console.log("M2 = ", M2);
+      R = multMatriz(M1, M2);
+      console.log("R = ", R);
+      if (listaDesenho[j].nome == "triangulo") {
+        listaDesenho[j].pontos[0] = R[0][0];
+        listaDesenho[j].pontos[1] = R[1][0];
+        listaDesenho[j].pontos[2] = R[0][1];
+        listaDesenho[j].pontos[3] = R[1][1];
+        listaDesenho[j].pontos[4] = R[0][2];
+        listaDesenho[j].pontos[5] = R[1][2];
+      } else {
+        listaDesenho[j].pontos[0] = R[0][0];
+        listaDesenho[j].pontos[1] = R[1][0];
+        listaDesenho[j].pontos[2] = R[0][1];
+        listaDesenho[j].pontos[3] = R[1][1];
       }
       listaDesenho[j].select == false;
     }
@@ -76,7 +104,8 @@ function Rotacao(O) {
     if (listaDesenho[j].select == true) {
       for (let k = 0; k < listaDesenho[j].pontos.length; k += 2) {
         M2.push([
-          [listaDesenho[j].pontos[k], listaDesenho[j].pontos[k + 1]],
+          [listaDesenho[j].pontos[k]],
+          [listaDesenho[j].pontos[k + 1]],
           [1]
         ]);
       }
