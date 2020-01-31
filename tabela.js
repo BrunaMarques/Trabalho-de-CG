@@ -11,7 +11,7 @@ function criarTabela(listaDesenho) {
     console.log("aqui", listaDesenho)
     table.innerHTML += `
     <tr>
-    <td id = ${j} onclick=selectOne(this) >${listaDesenho[j].id + "_" + listaDesenho[j].nome}</td>
+    <td id = ${j} display:flex:1;onclick=selectOne(this) >${listaDesenho[j].id + "_" + listaDesenho[j].nome}</td>
     </tr>`;
   }
 }

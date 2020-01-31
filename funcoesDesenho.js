@@ -45,6 +45,17 @@ function desenhaCirculo(context, pontos, select) {
   context.stroke();
 }
 
+function circuloQuatro() {
+  for (let k = 0; k < listaDesenho; k++) {
+    if (listaDesenho[k].nome == "circulo") {
+      listaDesenho[k].pontos[5] = (listaDesenho[k].pontos[1] + r)
+      listaDesenho[k].pontos[9] = (listaDesenho[k].pontos[1] - r)
+      listaDesenho[k].pontos[2] = (listaDesenho[k].pontos[0] + r)
+      listaDesenho[k].pontos[6] = (listaDesenho[k].pontos[0] - r)
+    }
+  }
+}
+
 function desenhaRetangulo(context, pontos, select) {
   console.log(select);
   d1 = Math.sqrt(

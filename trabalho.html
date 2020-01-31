@@ -36,7 +36,7 @@
     }
 
     .header {
-      background-color: rgb(42, 103, 216);
+      background-color: rgb(58, 124, 248);
       transition: 0.5s;
       overflow: hidden;
       position: fixed;
@@ -58,7 +58,7 @@
     }
 
     .header a:hover {
-      background-color: rgba(68, 211, 255, 0.863);
+      background-color: rgb(89, 170, 245);
 
       cursor: pointer;
       color: black;
@@ -67,34 +67,35 @@
     input[type=text],
     select {
       width: 30%;
-      padding: 12px 20px;
+      padding: 10px 15px;
       margin: 8px 0;
       border: 1px solid #ccc;
       border-radius: 4px;
       box-sizing: border-box;
       position: fixed;
-      top: 120px;
+      top: 110px;
       right: 70px;
 
     }
 
     input[type=submit] {
       width: 30%;
-      background-color: #4CAF50;
+      background-color: cornflowerblue;
       color: white;
-      padding: 14px 20px;
+      padding: 10px 15px;
       margin: 8px 0;
       border: none;
       border-radius: 4px;
       cursor: pointer;
       position: fixed;
-      top: 200px;
+      top: 170px;
       right: 70px;
 
     }
 
     input[type=submit]:hover {
-      background-color: #45a049;
+      background-color: rgb(89, 170, 245);
+      ;
     }
 
     tbody tr :hover {
@@ -102,6 +103,9 @@
       background-color: #ddf;
     }
 
+    th :hover {
+      background-color: cornflowerblue;
+    }
 
     table,
     th,
@@ -110,11 +114,12 @@
       border: 1px solid black;
       border-collapse: collapse;
       text-align: center;
+      width: 130px;
     }
 
     th {
       background-color: cornflowerblue;
-      width: 95px;
+
     }
   </style>
 </head>
@@ -122,8 +127,8 @@
 <body>
 
   <div class="header">
-    <a id="reta" onclick="desenhaReta()">Reta</a>
-    <a id="triangulo" onclick="desenhaTriangulo()">Triangulo</a>
+    <a id="reta">Reta</a>
+    <a id="triangulo">Triangulo</a>
     <a id="retangulo">Retangulo</a>
     <a id="circulo">Circulo</a>
     <a id="clear">Clear</a>
@@ -131,7 +136,7 @@
     <a id="rotacao">Rotação</a>
     <a id="escala">M.Escala</a>
     <a id="zoom">Zoom</a>
-    <a id="ajuda">Ajuda</a>
+    <a id="ajuda" onclick=setAjuda()>Ajuda</a>
     <a id="selectAll">Selecionar tudo</a>
     <a id="select">Selecionar</a>
 
@@ -146,13 +151,17 @@
   <span style='font-size:50px;position: absolute; top: 65px; left: 7px;'>&#8595;</span>
   <span style='font-size:20px;position: absolute; top: 115px; left: 22px;'>y</span>
   <div id="xycoordinates" style="position: absolute; top: 50px; left: 25px;"></div>
-  <div1>
+
+  <span style=" position:fixed; top: 60px; right: 230px;">Selecione acima o objeto que deseja desenhar e depois clique
+    na tela. Para mais
+    informações acesse o menu Ajuda.</span>
+  <div style="display:flex;">
     <table class="w3-table-all w3-centered" height: 1000px>
-      <th style=" position:fixed; bottom: 300px; right: 250px;">Objetos:</th>
+      <th style="position:fixed; bottom: 300px; right: 250px;">Selecione o(s) objeto(s)</th>
       <tbody class="table" id="selectOne" style="overflow-y:auto; position:absolute; top: 300px; right: 250px;">
       </tbody>
     </table>
-  </div1>
+  </div>
 
   <div>
     <form action="/action_page.php">

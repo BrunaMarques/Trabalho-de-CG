@@ -33,6 +33,7 @@ var circulo = document.getElementById("circulo");
 circulo.addEventListener("click", setCirculo);
 
 function setCirculo() {
+
   n = 2;
   op = "circulo";
   i = 0;
@@ -50,6 +51,8 @@ function setClear() {
   cord = [];
   id = 0;
   context.clearRect(0, 0, 750, 490);
+  limparTabela(table);
+  temselect = false;
 }
 
 var selectAll = document.getElementById("selectAll");
@@ -61,6 +64,18 @@ function selectOne(td) {
   for (let k = 0; k < listaDesenho.length; k++) {
     if (listaDesenho[k].id == td.id) {
       listaDesenho[k].select = true;
+      temselect = true;
+    }
+  }
+  desenhaLista();
+}
+var temselect = false;
+function deselectOne(td) {
+  console.log("aaaa", td.id)
+  i = 0;
+  for (let k = 0; k < listaDesenho.length; k++) {
+    if (listaDesenho[k].id == td.id) {
+      listaDesenho[k].select = false;
     }
   }
   desenhaLista();
@@ -73,6 +88,7 @@ function setSelectAll() {
   n = 0;
   for (let j = 0; j < listaDesenho.length; j++) {
     listaDesenho[j].select = true;
+    temselect = true;
   }
   desenhaLista();
 }
@@ -81,43 +97,59 @@ var translacao = document.getElementById("translacao");
 translacao.addEventListener("click", setTranslacao);
 
 function setTranslacao() {
-  n = 2;
-  cordTranf = [];
-  op = "translacao";
-  i = 0;
-  cord = [];
-  desenhando = true;
+  if (temselect == false) {
+    alert("Selecione um objeto primeiro!");
+  } else {
+    n = 2;
+    cordTranf = [];
+    op = "translacao";
+    i = 0;
+    cord = [];
+    desenhando = true;
+  }
 }
 
 var escala = document.getElementById("escala");
 escala.addEventListener("click", setEscala);
 
 function setEscala() {
-  let Sxy = prompt(
-    "Entre com os valores de X e Y para a musança de escala. Insira da segunte forma: X,Y",
-    "2,1"
-  );
-  let aux = Sxy.split(",");
-  let Sx = parseInt(aux[0]);
-  let Sy = parseInt(aux[1]);
-  console.log("x e y", Sx, Sy);
-  n = 0;
-  cordTranf = [];
-  i = 0;
-  cord = [];
-  desenhando = false;
-  MEscala(Sx, Sy);
+  if (temselect == false) {
+    alert("Selecione um objeto primeiro!");
+  } else {
+    let Sxy = prompt(
+      "Entre com os valores de X e Y para a musança de escala. Insira da segunte forma: X,Y",
+      "2,1"
+    );
+    let aux = Sxy.split(",");
+    let Sx = parseInt(aux[0]);
+    let Sy = parseInt(aux[1]);
+    console.log("x e y", Sx, Sy);
+    n = 0;
+    cordTranf = [];
+    i = 0;
+    cord = [];
+    desenhando = false;
+    MEscala(Sx, Sy);
+  }
 }
 
 var rotacao = document.getElementById("rotacao");
 rotacao.addEventListener("click", setRotacao);
 
 function setRotacao() {
-  op = "rotacao";
-  O = prompt("Entre com o angulo para a rotação.", "45");
-  n = 1;
-  cordTranf = [];
-  i = 0;
-  cord = [];
-  desenhando = true;
+  if (temselect == false) {
+    alert("Selecione um objeto primeiro!");
+  } else {
+    op = "rotacao";
+    O = prompt("Entre com o angulo para a rotação.", "45");
+    n = 1;
+    cordTranf = [];
+    i = 0;
+    cord = [];
+    desenhando = true;
+  }
+}
+
+function setAjuda() {
+  alert("Para desenhar um objeto na tela, selecione o objeto desenhado e clique na tela os pontos onde desenha inserir o desenho.\nPara realizar uma transformação, selecione o objeto que deseja realizar a operação pela lista de objetos e então selecione a operação que deseja realizar. Para a translação, selecione dois pontos na tela, correspondentes ao vetor de translação. Para a rotação, insira os graus e clique no ponto que seja o eixo de rotação. Para a mudança de escala, insira os valores e clique no ponto do objeto onde ocorrerá a mudança.\nPara dar zoom, selecione a opção correspondente e selecione os dois pontos na tela onde deseja criar a janela.")
 }

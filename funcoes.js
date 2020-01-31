@@ -190,3 +190,119 @@ function Rotacao(O) {
   }
   desenhaLista();
 }
+var maxX = 0;
+var minX = 0;
+var maxY = 0;
+var minY = 0;
+
+function pegaMaxMin() {
+
+  for (var w = 0; w < listaDesenho.length; w++) {
+    if (listaDesenho[w].nome == "reta") {
+      if (listaDesenho[w].pontos[0] > maxX) {
+        maxX = listaDesenho[w].pontos[0];
+      } else if (listaDesenho[w].pontos[2] > maxX) {
+        maxX = listaDesenho[w].pontos[2];
+      } else if (listaDesenho[w].pontos[0] < minX) {
+        minX = listaDesenho[w].pontos[0];
+      } else if (listaDesenho[w].pontos[2] < minX) {
+        minX = listaDesenho[w].pontos[2];
+      }
+      if (listaDesenho[w].pontos[1] > maxY) {
+        maxY = listaDesenho[w].pontos[1];
+      } else if (listaDesenho[w].pontos[3] > maxY) {
+        maxY = listaDesenho[w].pontos[3];
+      } else if (listaDesenho[w].pontos[1] < minY) {
+        minY = listaDesenho[w].pontos[1];
+      } else if (listaDesenho[w].pontos[3] < minY) {
+        minY = listaDesenho[w].pontos[3];
+      }
+    }
+    if (listaDesenho[w].nome == "circulo") {
+      if (listaDesenho[w].pontos[2] > maxX) {
+        maxX = listaDesenho[w].pontos[2];
+      } else if (listaDesenho[w].pontos[6] > maxX) {
+        maxX = listaDesenho[w].pontos[6];
+      } else if (listaDesenho[w].pontos[2] < minX) {
+        minX = listaDesenho[w].pontos[2];
+      } else if (listaDesenho[w].pontos[6] < minX) {
+        minX = listaDesenho[w].pontos[6];
+      }
+
+      if (listaDesenho[w].pontos[3] > maxY) {
+        maxY = listaDesenho[w].pontos[3];
+      } else if (listaDesenho[w].pontos[5] > maxY) {
+        maxY = listaDesenho[w].pontos[5];
+      } else if (listaDesenho[w].pontos[9] > maxY) {
+        maxY = listaDesenho[w].pontos[9];
+      } else if (listaDesenho[w].pontos[3] < minY) {
+        minY = listaDesenho[w].pontos[3];
+      } else if (listaDesenho[w].pontos[3] < minY) {
+        minY = listaDesenho[w].pontos[3];
+      } else if (listaDesenho[w].pontos[9] < minY) {
+        minY = listaDesenho[w].pontos[9];
+      }
+    }
+    if (listaDesenho[w].nome == "retangulo") {
+      if (listaDesenho[w].pontos[0] > maxX) {
+        maxX = listaDesenho[w].pontos[0];
+      } else if (listaDesenho[w].pontos[2] > maxX) {
+        maxX = listaDesenho[w].pontos[2];
+      } else if (listaDesenho[w].pontos[0] < minX) {
+        minX = listaDesenho[w].pontos[0];
+      } else if (listaDesenho[w].pontos[2] < minX) {
+        minX = listaDesenho[w].pontos[2];
+      }
+      if (listaDesenho[w].pontos[1] > maxY) {
+        maxY = listaDesenho[w].pontos[1];
+      } else if (listaDesenho[w].pontos[3] > maxY) {
+        maxY = listaDesenho[w].pontos[3];
+      } else if (listaDesenho[w].pontos[1] < minY) {
+        minY = listaDesenho[w].pontos[1];
+      } else if (listaDesenho[w].pontos[3] < minY) {
+        minY = listaDesenho[w].pontos[3];
+      }
+    }
+    if (listaDesenho[w].nome == "triangulo") {
+      if (listaDesenho[w].pontos[0] > maxX) {
+        maxX = listaDesenho[w].pontos[0];
+      } else if (listaDesenho[w].pontos[2] > maxX) {
+        maxX = listaDesenho[w].pontos[2];
+      } else if (listaDesenho[w].pontos[4] > maxX) {
+        maxX = listaDesenho[w].pontos[4];
+      } else if (listaDesenho[w].pontos[0] < minX) {
+        minX = listaDesenho[w].pontos[0];
+      } else if (listaDesenho[w].pontos[2] < minX) {
+        minX = listaDesenho[w].pontos[2];
+      } else if (listaDesenho[w].pontos[4] < minX) {
+        minX = listaDesenho[w].pontos[4];
+      }
+      if (listaDesenho[w].pontos[1] > maxY) {
+        maxY = listaDesenho[w].pontos[1];
+      } else if (listaDesenho[w].pontos[3] > maxY) {
+        maxY = listaDesenho[w].pontos[3];
+      } else if (listaDesenho[w].pontos[5] > maxY) {
+        maxY = listaDesenho[w].pontos[5];
+      } else if (listaDesenho[w].pontos[1] < minY) {
+        minY = listaDesenho[w].pontos[1];
+      } else if (listaDesenho[w].pontos[3] < minY) {
+        minY = listaDesenho[w].pontos[3];
+      } else if (listaDesenho[w].pontos[5] < minY) {
+        minY = listaDesenho[w].pontos[5];
+      }
+    }
+  }
+}
+
+function zoomExtend() {
+  todos = [];
+  unico = [];
+  for (let k = 0; k < listaDesenho.length; k++) {
+    unico = {
+      pegaMaxMin();
+        maxX: listaDesenho[k];
+    }
+  }
+}
+
+}
