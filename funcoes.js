@@ -130,15 +130,14 @@ function MEscala(Sx, Sy) {
 }
 
 function Rotacao(O) {
+  O = O * (Math.PI / 180);
+  let cos = Math.sin(-O);
+  let sen = Math.sin(-O);
   R = [];
-  let M2, M1;
-  console.log("ROTACAO");
-
+  let M2 = [];
+  let M1 = [];
   let x = cordTranf[0];
   let y = cordTranf[1];
-  console.log("X ", x);
-  console.log("Y ", y);
-
   for (let j = 0; j < listaDesenho.length; j++) {
     if (listaDesenho[j].select == true) {
       if (listaDesenho[j].nome == "triangulo") {
@@ -162,16 +161,14 @@ function Rotacao(O) {
           [1, 1, 1]
         ];
       }
+
       M1 = [
-        [Math.cos(O), -Math.sin(O), y * Math.sin(O) - x * Math.cos(0) + x],
-        [Math.sin(O), Math.cos(O), -x * Math.sin(O) - y * Math.cos(0) + y],
+        [cos, -sen, y * sen - x * cos + x],
+        [sen, cos, -x * sen - y * cos + y],
         [0, 0, 1]
       ];
 
-      console.log("M1 = ", M1);
-      console.log("M2 = ", M2);
       R = multMatriz(M1, M2);
-      console.log("R = ", R);
       if (listaDesenho[j].nome == "triangulo") {
         listaDesenho[j].pontos[0] = R[0][0];
         listaDesenho[j].pontos[1] = R[1][0];

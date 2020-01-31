@@ -1,7 +1,8 @@
 function desenhaReta(context, pontos, select) {
-  console.log(select);
+  context.beginPath();
   context.moveTo(pontos[0], pontos[1]);
   context.lineTo(pontos[2], pontos[3]);
+  context.closePath();
 
   if (select == true) {
     context.strokeStyle = "red";
@@ -12,7 +13,6 @@ function desenhaReta(context, pontos, select) {
 }
 
 function desenhaTriangulo(context, pontos, select) {
-  console.log(select);
   context.beginPath();
   context.moveTo(pontos[0], pontos[1]);
   context.lineTo(pontos[2], pontos[3]);
@@ -28,7 +28,6 @@ function desenhaTriangulo(context, pontos, select) {
 }
 
 function desenhaCirculo(context, pontos, select) {
-  console.log(select);
   r = Math.sqrt(
     Math.pow(pontos[0] - pontos[2], 2) + Math.pow(pontos[1] - pontos[3], 2)
   );
@@ -57,20 +56,22 @@ function circuloQuatro() {
 }
 
 function desenhaRetangulo(context, pontos, select) {
-  console.log(select);
-  d1 = Math.sqrt(
-    Math.pow(pontos[0] - pontos[0], 2) + Math.pow(pontos[1] - pontos[3], 2)
+  context.beginPath();
+  context.moveTo(pontos[0], pontos[1]);
+  context.strokeRect(
+    pontos[0],
+    pontos[1],
+    pontos[2] - pontos[0],
+    pontos[3] - pontos[1]
   );
-  d2 = Math.sqrt(
-    Math.pow(pontos[1] - pontos[1], 2) + Math.pow(pontos[0] - pontos[2], 2)
-  );
+  context.closePath();
 
   if (select == true) {
     context.strokeStyle = "red";
   } else {
     context.strokeStyle = "black";
   }
-  context.strokeRect(pontos[0], pontos[1], d2, d1);
+  context.stroke();
 }
 
 function desenhaLista() {

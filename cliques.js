@@ -50,16 +50,18 @@ function setClear() {
   i = 0;
   cord = [];
   id = 0;
+  for (let j = 0; j < listaDesenho.length; j++) {
+    listaDesenho[j].select = false;
+    context.strokeStyle = "black";
+  }
   context.clearRect(0, 0, 750, 490);
   limparTabela(table);
   temselect = false;
+  desenhaLista();
 }
 
-var selectAll = document.getElementById("selectAll");
-selectAll.addEventListener("click", setSelectAll);
-
 function selectOne(td) {
-  console.log("aaaa", td.id)
+  console.log("aaaa", td.id);
   i = 0;
   for (let k = 0; k < listaDesenho.length; k++) {
     if (listaDesenho[k].id == td.id) {
@@ -81,6 +83,8 @@ function deselectOne(td) {
   desenhaLista();
 }
 
+var selectAll = document.getElementById("selectAll");
+selectAll.addEventListener("click", setSelectAll);
 
 function setSelectAll() {
   i = 0;
@@ -88,7 +92,7 @@ function setSelectAll() {
   n = 0;
   for (let j = 0; j < listaDesenho.length; j++) {
     listaDesenho[j].select = true;
-    temselect = true;
+    context.strokeStyle = "red";
   }
   desenhaLista();
 }
@@ -142,6 +146,7 @@ function setRotacao() {
   } else {
     op = "rotacao";
     O = prompt("Entre com o angulo para a rotação.", "45");
+    O = parseInt(O);
     n = 1;
     cordTranf = [];
     i = 0;
