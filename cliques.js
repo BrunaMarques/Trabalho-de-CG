@@ -56,7 +56,7 @@ var selectAll = document.getElementById("selectAll");
 selectAll.addEventListener("click", setSelectAll);
 
 function selectOne(td) {
-  console.log("aaaa", td.id)
+  console.log("aaaa", td.id);
   i = 0;
   for (let k = 0; k < listaDesenho.length; k++) {
     if (listaDesenho[k].id == td.id) {
@@ -65,7 +65,6 @@ function selectOne(td) {
   }
   desenhaLista();
 }
-
 
 function setSelectAll() {
   i = 0;
@@ -115,6 +114,7 @@ rotacao.addEventListener("click", setRotacao);
 function setRotacao() {
   op = "rotacao";
   O = prompt("Entre com o angulo para a rotação.", "45");
+  O = parseInt(O);
   n = 1;
   cordTranf = [];
   i = 0;
