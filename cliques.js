@@ -100,11 +100,11 @@ var rotacao = document.getElementById("rotacao");
 rotacao.addEventListener("click", setRotacao);
 
 function setRotacao() {
+  op = "rotacao";
   O = prompt("Entre com o angulo para a rotação.", "45");
-  n = 0;
+  n = 1;
   cordTranf = [];
   i = 0;
   cord = [];
   desenhando = true;
-  op = "rotacao";
 }

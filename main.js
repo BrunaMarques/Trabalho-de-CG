@@ -83,6 +83,7 @@ function posicaoClique(evento) {
           break;
         case "rotacao":
           cordTranf = cord;
+          console.log("MERDAAAA ", cordTranf);
           cord = [];
           Rotacao(O);
           break;
