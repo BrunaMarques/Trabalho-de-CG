@@ -22,7 +22,7 @@ function Ftranslacao() {
       for (let k = 0; k < listaDesenho[j].pontos.length; k += 2) {
         let dx = cordTranf[2] - cordTranf[0];
 
-        let dy = cordTranf[3] - cordTranf[1];
+        let dy = cordTranf[1] - cordTranf[3];
 
         let M1 = [
           [1, 0, dx],
@@ -30,7 +30,7 @@ function Ftranslacao() {
           [0, 0, 1]
         ];
         let M2 = [
-          [listaDesenho[j].pontos[k]],
+          [listaDesenho[j].pontos[k]], //Arrumar essa merda que eu fiz, to pegando errado, tem que ser a linha e estou passando a coluna
           [listaDesenho[j].pontos[k + 1]],
           [1]
         ];
@@ -63,6 +63,41 @@ function MEscala(Sx, Sy) {
         listaDesenho[j].pontos[k] = R[0];
         listaDesenho[j].pontos[k + 1] = R[1];
       }
+      listaDesenho[j].select == false;
+    }
+  }
+  desenhaLista();
+}
+
+function Rotacao(O) {
+  R = [];
+  M2 = [];
+  for (let j = 0; j < listaDesenho.length; j++) {
+    if (listaDesenho[j].select == true) {
+      for (let k = 0; k < listaDesenho[j].pontos.length; k += 2) {
+        M2.push([
+          [listaDesenho[j].pontos[k], listaDesenho[j].pontos[k + 1]],
+          [1]
+        ]);
+      }
+      let M1 = [
+        [
+          Math.cos(O),
+          -Math.sin(O),
+          Math.sin(O) - cordTranf[0] * Math.cos(O) + x
+        ],
+        [
+          Math.sin(O),
+          Math.cos(O),
+          -cordTranf[0] * Math.sin(O) -
+            cordTranf[1] * Math.cos(O) +
+            cordTranf[1]
+        ],
+        [0, 0, 1]
+      ];
+
+      R = multMatriz(M1, M2);
+
       listaDesenho[j].select == false;
     }
   }

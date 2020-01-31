@@ -21,6 +21,7 @@ canvas.style.height = 245;
 var context = canvas.getContext("2d"); //utilizado para recuperar o contexto de desenho, presente em todos os canvas
 var i = 0;
 var id = 0;
+var O = 0;
 tamLista = 0;
 function posicaoClique(evento) {
   console.log(tamLista);
@@ -77,9 +78,13 @@ function posicaoClique(evento) {
           break;
         case "translacao":
           cordTranf = cord;
-          console.log("CORDENADA TRANLACAO: ", cordTranf);
           cord = [];
           Ftranslacao();
+          break;
+        case "rotacao":
+          cordTranf = cord;
+          cord = [];
+          Rotacao(O);
           break;
       }
       console.log(x);

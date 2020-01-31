@@ -95,3 +95,16 @@ function setEscala() {
   desenhando = false;
   MEscala(Sx, Sy);
 }
+
+var rotacao = document.getElementById("rotacao");
+rotacao.addEventListener("click", setRotacao);
+
+function setRotacao() {
+  O = prompt("Entre com o angulo para a rotação.", "45");
+  n = 0;
+  cordTranf = [];
+  i = 0;
+  cord = [];
+  desenhando = true;
+  op = "rotacao";
+}
