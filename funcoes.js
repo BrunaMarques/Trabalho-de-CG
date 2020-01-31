@@ -66,9 +66,10 @@ function Ftranslacao() {
         listaDesenho[j].pontos[2] = R[0][1];
         listaDesenho[j].pontos[3] = R[1][1];
       }
-      listaDesenho[j].select == false;
     }
+    listaDesenho[j].select == false;
   }
+
   desenhaLista();
 }
 
@@ -121,9 +122,10 @@ function MEscala(Sx, Sy) {
         listaDesenho[j].pontos[2] = R[0][1];
         listaDesenho[j].pontos[3] = R[1][1];
       }
-      listaDesenho[j].select == false;
     }
+    listaDesenho[j].select == false;
   }
+
   desenhaLista();
 }
 
@@ -160,16 +162,12 @@ function Rotacao(O) {
           [1, 1, 1]
         ];
       }
-      // M1 = [
-      //   [Math.cos(O), -Math.sin(O), y * Math.sin(O) - x * Math.cos(0) + x],
-      //   [Math.sin(O), Math.cos(O), -x * Math.sin(O) - y * Math.cos(0) + y],
-      //   [0, 0, 1]
-      // ];
       M1 = [
         [Math.cos(O), -Math.sin(O), y * Math.sin(O) - x * Math.cos(0) + x],
         [Math.sin(O), Math.cos(O), -x * Math.sin(O) - y * Math.cos(0) + y],
         [0, 0, 1]
       ];
+
       console.log("M1 = ", M1);
       console.log("M2 = ", M2);
       R = multMatriz(M1, M2);
@@ -187,8 +185,8 @@ function Rotacao(O) {
         listaDesenho[j].pontos[2] = R[0][1];
         listaDesenho[j].pontos[3] = R[1][1];
       }
-      listaDesenho[j].select == false;
     }
+    listaDesenho[j].select == false;
   }
   desenhaLista();
 }
