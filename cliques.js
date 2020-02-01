@@ -70,7 +70,7 @@ function setClear() {
 
 function selectOne(td) {
   i = 0;
-  listaAux = listaDesenho
+  listaAux = listaDesenho;
   for (let k = 0; k < listaDesenho.length; k++) {
     if (listaDesenho[k].id == td.id) {
       listaDesenho[k].select = true;
@@ -90,7 +90,7 @@ function setSelectAll() {
   listaAux = listaDesenho;
   for (let j = 0; j < listaDesenho.length; j++) {
     listaDesenho[j].select = true;
-    context.strokeStyle = "red";
+    temselect = true;
   }
   desenhaLista();
 }
@@ -170,11 +170,25 @@ function getInput() {
   var linhaComando = document.getElementById("linhacomando").value;
 };
 
-document.addEventListener('keydown', function (event) {
-  if (event.ctrlKey && event.key === 'z') {
-    listaDesenho = listaAux;
-    listaAux = [];
+document.addEventListener("keydown", function (event) {
+  if (event.ctrlKey && event.key === "z") {
+    listaDesenho.pop();
     desenhaLista();
     criarTabela(listaDesenho);
   }
 });
+
+var voltar = document.getElementById("voltar");
+voltar.addEventListener("click", setVoltar);
+
+function setVoltar() {
+  n = 1;
+  i = 0;
+  cord = [];
+  desenhando = true;
+  console.log("Voltar");
+  console.log(listaDesenho);
+  console.log(listaAux);
+  listaDesenho.pop();
+  desenhaLista();
+}
