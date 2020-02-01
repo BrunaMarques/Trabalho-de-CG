@@ -152,21 +152,20 @@
   <span style='font-size:20px;position: absolute; top: 115px; left: 22px;'>y</span>
   <div id="xycoordinates" style="position: absolute; top: 50px; left: 25px;"></div>
 
-  <span style=" position:fixed; top: 60px; right: 230px;">Selecione acima o objeto que deseja desenhar e depois clique
+  <span style=" position:fixed; top: 65px; right: 230px;">Selecione acima o objeto que deseja desenhar e depois clique
     na tela. Para mais
     informações acesse o menu Ajuda.</span>
   <div style="display:flex;">
     <table class="w3-table-all w3-centered" height: 1000px>
-      <th style="position:fixed; bottom: 300px; right: 250px;">Selecione o(s) objeto(s)</th>
-      <tbody class="table" id="selectOne" style="overflow-y:auto; position:absolute; top: 300px; right: 250px;">
+      <th style="position:absolute; bottom: 50%; right: 20%;">Selecione o(s) objeto(s)</th>
+      <tbody class="table" id="selectOne" style="overflow-y:auto; position:absolute; top: 50%; right: 20%;">
       </tbody>
     </table>
   </div>
 
   <div>
-    <form action="/action_page.php">
-      <input type="text" id="input" name="input" placeholder="Input...">
-      <input type="submit" value="Pronto">
+    <form onsubmit="linhaComando(this) ;return false">
+      <input type="text" id="linhaComando" name="linhaComando" placeholder="Input..." />
     </form>
   </div>
 

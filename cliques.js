@@ -160,3 +160,8 @@ zoomExtend.addEventListener("click", zoomExtend);
 function setAjuda() {
   alert("Para desenhar um objeto na tela, selecione o objeto desenhado e clique na tela os pontos onde desenha inserir o desenho.\nPara realizar uma transformação, selecione o objeto que deseja realizar a operação pela lista de objetos e então selecione a operação que deseja realizar. Para a translação, selecione dois pontos na tela, correspondentes ao vetor de translação. Para a rotação, insira os graus e clique no ponto que seja o eixo de rotação. Para a mudança de escala, insira os valores e clique no ponto do objeto onde ocorrerá a mudança.\nPara dar zoom, selecione a opção correspondente e selecione os dois pontos na tela onde deseja criar a janela.")
 }
+
+
+function linhaComando(event) {
+  alert("aaaa")
+};
