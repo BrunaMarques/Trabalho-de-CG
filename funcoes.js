@@ -188,9 +188,9 @@ function Rotacao(O) {
   desenhaLista();
 }
 var maxX = 0;
-var minX = 0;
+var minX = 750;;
 var maxY = 0;
-var minY = 0;
+var minY = 490;
 
 function pegaMaxMin() {
   for (let w = 0; w < listaDesenho.length; w++) {
