@@ -188,7 +188,7 @@ function Rotacao(O) {
   desenhaLista();
 }
 var maxX = 0;
-var minX = 750;;
+var minX = 750;
 var maxY = 0;
 var minY = 490;
 
@@ -292,11 +292,11 @@ function pegaMaxMin() {
 
 function zoomExtend() {
   pegaMaxMin();
-  let Zsx = 750 / (maxX - minX);
-  let Zsy = 490 / (maxY - minY);
-  let RW = 750 / 490;
+  let Zsx = canvas.width / (maxX - minX);
+  let Zsy = canvas.height / (maxY - minY);
+  let RW = canvas.width / canvas.height;
   let RV = (maxX - minX) / (maxY - minY);
-  let Ynovo = RW / (maxX - minX) + minY;
+  let Ynovo = (maxX - minX) / RW + minY;
   let Xnovo = RW * (maxY - minY) + minX;
   let M1 = [];
   let M2 = [];
@@ -305,6 +305,8 @@ function zoomExtend() {
   let R2 = [];
 
   console.log("AAAAAAAAAAAAAAAAAAAAAAAA");
+  console.log(canvas.width);
+  console.log(RV);
   todos = [];
   unico = [];
   for (let j = 0; j < listaDesenho.length; j++) {
@@ -334,8 +336,8 @@ function zoomExtend() {
       //Faz com o Y
 
       M1 = [
-        [1, 0, (maxY - Ynovo) / 2],
-        [0, 1, 0],
+        [1, 0, 0],
+        [0, 1, (maxY - Ynovo) / 2],
         [0, 0, 0]
       ];
       M2 = [
@@ -344,6 +346,7 @@ function zoomExtend() {
         [0, 0, 0]
       ];
     } else {
+      console.log("ELSE");
       M1 = [
         [1, 0, (maxX - Xnovo) / 2],
         [0, 1, 0],
@@ -361,9 +364,13 @@ function zoomExtend() {
     console.log(maxY);
     console.log(minX);
     console.log(minY);
+    console.log(M1);
+    console.log(M2);
+    console.log(M3);
+    console.log(R);
+    console.log(R2);
     if (listaDesenho[j].nome == "triangulo") {
       listaDesenho[j].pontos[0] = R2[0][0];
-      console.log("teste ", listaDesenho[j].pontos[0]);
       listaDesenho[j].pontos[1] = R2[1][0];
       listaDesenho[j].pontos[2] = R2[0][1];
       listaDesenho[j].pontos[3] = R2[1][1];
