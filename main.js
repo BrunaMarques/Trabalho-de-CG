@@ -34,7 +34,7 @@ function posicaoClique(evento) {
       context.fillRect(posX, posY, 5, 5);
       cord.push(posX);
       cord.push(posY);
-      cord.forEach(function (item, indice, array) {
+      cord.forEach(function(item, indice, array) {
         console.log(item, indice);
       });
       i++;
@@ -44,21 +44,25 @@ function posicaoClique(evento) {
         case "reta":
           console.log("CASE1");
           listaDesenho.push(new forma("reta", id++, cord));
+          listaAux = listaDesenho;
           break;
         case "circulo":
           console.log("CASE2");
 
           listaDesenho.push(new forma("circulo", id++, cord));
+          listaAux = listaDesenho;
 
           break;
         case "retangulo":
           console.log("CASE3");
           listaDesenho.push(new forma("retangulo", id++, cord));
+          listaAux = listaDesenho;
 
           break;
         case "triangulo":
           console.log("CASE4");
           listaDesenho.push(new forma("triangulo", id++, cord));
+          listaAux = listaDesenho;
 
           break;
         case "translacao":
@@ -95,7 +99,7 @@ function getMousePos(canvas, evt) {
 
 canvas.addEventListener(
   "mousemove",
-  function (evt) {
+  function(evt) {
     var mousePos = getMousePos(canvas, evt);
     document.getElementById("xycoordinates").innerHTML =
       "Coordenadas: x(" + mousePos.x + ")" + " , y(" + mousePos.y + ")";
