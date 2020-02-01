@@ -193,8 +193,7 @@ var maxY = 0;
 var minY = 0;
 
 function pegaMaxMin() {
-
-  for (const w = 0; w < listaDesenho.length; w++) {
+  for (let w = 0; w < listaDesenho.length; w++) {
     if (listaDesenho[w].nome == "reta") {
       if (listaDesenho[w].pontos[0] > maxX) {
         maxX = listaDesenho[w].pontos[0];
@@ -292,13 +291,90 @@ function pegaMaxMin() {
 }
 
 function zoomExtend() {
+  pegaMaxMin();
+  let Zsx = 750 / (maxX - minX);
+  let Zsy = 490 / (maxY - minY);
+  let RW = 750 / 490;
+  let RV = (maxX - minX) / (maxY - minY);
+  let Ynovo = RW / (maxX - minX) + minY;
+  let Xnovo = RW * (maxY - minY) + minX;
+  let M1 = [];
+  let M2 = [];
+  let M3 = [];
+  let R = [];
+  let R2 = [];
+
+  console.log("AAAAAAAAAAAAAAAAAAAAAAAA");
   todos = [];
   unico = [];
-  for (let k = 0; k < listaDesenho.length; k++) {
-    unico = {
-      pegaMaxMin()
-
+  for (let j = 0; j < listaDesenho.length; j++) {
+    console.log("BBBBB");
+    if (listaDesenho[j].nome == "triangulo") {
+      M3 = [
+        [
+          listaDesenho[j].pontos[0],
+          listaDesenho[j].pontos[2],
+          listaDesenho[j].pontos[4]
+        ],
+        [
+          listaDesenho[j].pontos[1],
+          listaDesenho[j].pontos[3],
+          listaDesenho[j].pontos[5]
+        ],
+        [1, 1, 1]
+      ];
+    } else {
+      M3 = [
+        [listaDesenho[j].pontos[0], listaDesenho[j].pontos[2]],
+        [listaDesenho[j].pontos[1], listaDesenho[j].pontos[3]],
+        [1, 1, 1]
+      ];
     }
-    console.log(unico);
+    if (RW > RV) {
+      //Faz com o Y
+
+      M1 = [
+        [1, 0, (maxY - Ynovo) / 2],
+        [0, 1, 0],
+        [0, 0, 0]
+      ];
+      M2 = [
+        [Zsx, 0, -Zsx * minX],
+        [0, Zsy, -Zsy * minY],
+        [0, 0, 0]
+      ];
+    } else {
+      M1 = [
+        [1, 0, (maxX - Xnovo) / 2],
+        [0, 1, 0],
+        [0, 0, 0]
+      ];
+      M2 = [
+        [Zsx, 0, -Zsx * minX],
+        [0, Zsy, -Zsy * minY],
+        [0, 0, 0]
+      ];
+    }
+    R = multMatriz(M1, M2);
+    R2 = multMatriz(R, M3);
+    console.log(maxX);
+    console.log(maxY);
+    console.log(minX);
+    console.log(minY);
+    if (listaDesenho[j].nome == "triangulo") {
+      listaDesenho[j].pontos[0] = R2[0][0];
+      console.log("teste ", listaDesenho[j].pontos[0]);
+      listaDesenho[j].pontos[1] = R2[1][0];
+      listaDesenho[j].pontos[2] = R2[0][1];
+      listaDesenho[j].pontos[3] = R2[1][1];
+      listaDesenho[j].pontos[4] = R2[0][2];
+      listaDesenho[j].pontos[5] = R2[1][2];
+    } else {
+      listaDesenho[j].pontos[0] = R2[0][0];
+      listaDesenho[j].pontos[1] = R2[1][0];
+      listaDesenho[j].pontos[2] = R2[0][1];
+      listaDesenho[j].pontos[3] = R2[1][1];
+    }
   }
+  desenhaLista();
 }

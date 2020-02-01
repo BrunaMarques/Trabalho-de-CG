@@ -149,7 +149,12 @@ function setRotacao() {
   }
 }
 var zoomExtend = document.getElementById("zoomExtend");
-zoomExtend.addEventListener("click", zoomExtend);
+zoomExtend.addEventListener("click", setZoom);
+
+function setZoom() {
+  desenhando = true;
+  zoomExtend();
+}
 
 function setAjuda() {
   alert(
