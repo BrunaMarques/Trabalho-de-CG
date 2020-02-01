@@ -24,43 +24,33 @@ var id = 0;
 var O = 0;
 tamLista = 0;
 function posicaoClique(evento) {
-  console.log(tamLista);
   if (desenhando == true) {
     if (i < n) {
       var posX = evento.clientX - canvas.offsetLeft; //  saber a distância do canvas em relação ao topo e à esquerda para que a posição seja relativa ao canvas e não à janela do navegação
       var posY = evento.clientY - canvas.offsetTop;
-      console.clear();
-      console.log("Posição do clique: ", posX + "," + posY);
       context.fillRect(posX, posY, 5, 5);
       cord.push(posX);
       cord.push(posY);
-      cord.forEach(function(item, indice, array) {
-        console.log(item, indice);
-      });
+      cord.forEach(function(item, indice, array) {});
       i++;
     }
     if (i == n) {
       switch (op) {
         case "reta":
-          console.log("CASE1");
           listaDesenho.push(new forma("reta", id++, cord));
           listaAux = listaDesenho;
           break;
         case "circulo":
-          console.log("CASE2");
-
           listaDesenho.push(new forma("circulo", id++, cord));
           listaAux = listaDesenho;
 
           break;
         case "retangulo":
-          console.log("CASE3");
           listaDesenho.push(new forma("retangulo", id++, cord));
           listaAux = listaDesenho;
 
           break;
         case "triangulo":
-          console.log("CASE4");
           listaDesenho.push(new forma("triangulo", id++, cord));
           listaAux = listaDesenho;
 
@@ -76,7 +66,6 @@ function posicaoClique(evento) {
           Rotacao(O);
           break;
       }
-      console.log(x);
       x = x + 1;
       context.clearRect(0, 0, 750, 490);
       desenhaLista();

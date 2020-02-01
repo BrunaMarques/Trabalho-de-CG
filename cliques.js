@@ -125,7 +125,7 @@ function setEscala() {
     let aux = Sxy.split(",");
     let Sx = parseInt(aux[0]);
     let Sy = parseInt(aux[1]);
-    console.log("x e y", Sx, Sy);
+
     n = 0;
     cordTranf = [];
     i = 0;
@@ -188,9 +188,6 @@ function setVoltar() {
   i = 0;
   cord = [];
   desenhando = true;
-  console.log("Voltar");
-  console.log(listaDesenho);
-  console.log(listaAux);
   listaDesenho.pop();
   desenhaLista();
 }

@@ -49,10 +49,7 @@ function Ftranslacao() {
           [1, 1, 1]
         ];
       }
-      console.log("M1 = ", M1);
-      console.log("M2 = ", M2);
       R = multMatriz(M1, M2);
-      console.log("R = ", R);
       if (listaDesenho[j].nome == "triangulo") {
         listaDesenho[j].pontos[0] = R[0][0];
         listaDesenho[j].pontos[1] = R[1][0];
@@ -105,10 +102,7 @@ function MEscala(Sx, Sy) {
         [0, Sy, listaDesenho[j].pontos[1] - listaDesenho[j].pontos[1] * Sy],
         [0, 0, 1]
       ];
-      console.log("M1 = ", M1);
-      console.log("M2 = ", M2);
       R = multMatriz(M1, M2);
-      console.log("R = ", R);
       if (listaDesenho[j].nome == "triangulo") {
         listaDesenho[j].pontos[0] = R[0][0];
         listaDesenho[j].pontos[1] = R[1][0];
@@ -304,14 +298,9 @@ function zoomExtend() {
   let M3 = [];
   let R = [];
   let R2 = [];
-
-  console.log("AAAAAAAAAAAAAAAAAAAAAAAA");
-  console.log(canvas.width);
-  console.log(RV);
   todos = [];
   unico = [];
   for (let j = 0; j < listaDesenho.length; j++) {
-    console.log("BBBBB");
     if (listaDesenho[j].nome == "triangulo") {
       M3 = [
         [
@@ -347,7 +336,6 @@ function zoomExtend() {
         [0, 0, 0]
       ];
     } else {
-      console.log("ELSE");
       M1 = [
         [1, 0, (maxX - Xnovo) / 2],
         [0, 1, 0],
@@ -361,15 +349,6 @@ function zoomExtend() {
     }
     R = multMatriz(M1, M2);
     R2 = multMatriz(R, M3);
-    console.log(maxX);
-    console.log(maxY);
-    console.log(minX);
-    console.log(minY);
-    console.log(M1);
-    console.log(M2);
-    console.log(M3);
-    console.log(R);
-    console.log(R2);
     if (listaDesenho[j].nome == "triangulo") {
       listaDesenho[j].pontos[0] = R2[0][0];
       listaDesenho[j].pontos[1] = R2[1][0];
