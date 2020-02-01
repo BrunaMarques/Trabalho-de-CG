@@ -102,6 +102,7 @@ function setTranslacao() {
   if (temselect == false) {
     alert("Selecione um objeto primeiro!");
   } else {
+    alert("Selecione dois pontos");
     n = 2;
     cordTranf = [];
     op = "translacao";
@@ -168,9 +169,9 @@ function setAjuda() {
 
 function getInput() {
   var linhaComando = document.getElementById("linhacomando").value;
-};
+}
 
-document.addEventListener("keydown", function (event) {
+document.addEventListener("keydown", function(event) {
   if (event.ctrlKey && event.key === "z") {
     listaDesenho.pop();
     desenhaLista();
