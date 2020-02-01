@@ -1,7 +1,9 @@
 var reta = document.getElementById("reta");
 reta.addEventListener("click", setReta);
+var temselect = false;
 
 function setReta() {
+  alert("Selecione dois pontos para desenhar a reta");
   n = 2;
   op = "reta";
   i = 0;
@@ -12,6 +14,7 @@ var triangulo = document.getElementById("triangulo");
 triangulo.addEventListener("click", setTriangulo);
 
 function setTriangulo() {
+  alert("Selecione três pontos para desenhar o triângulo");
   n = 3;
   op = "triangulo";
   i = 0;
@@ -22,6 +25,7 @@ var retangulo = document.getElementById("retangulo");
 retangulo.addEventListener("click", setRetangulo);
 
 function setRetangulo() {
+  alert("Selecione dois pontos para desenhar o retângulo");
   n = 2;
   op = "retangulo";
   i = 0;
@@ -33,7 +37,9 @@ var circulo = document.getElementById("circulo");
 circulo.addEventListener("click", setCirculo);
 
 function setCirculo() {
-
+  alert(
+    "Selecione dois pontos para desenhar o circulo. O primeiro ponto deve ser o centro e o segundo a extremidade do círculo"
+  );
   n = 2;
   op = "circulo";
   i = 0;
@@ -61,23 +67,11 @@ function setClear() {
 }
 
 function selectOne(td) {
-  console.log("aaaa", td.id);
   i = 0;
   for (let k = 0; k < listaDesenho.length; k++) {
     if (listaDesenho[k].id == td.id) {
       listaDesenho[k].select = true;
       temselect = true;
-    }
-  }
-  desenhaLista();
-}
-var temselect = false;
-function deselectOne(td) {
-  console.log("aaaa", td.id)
-  i = 0;
-  for (let k = 0; k < listaDesenho.length; k++) {
-    if (listaDesenho[k].id == td.id) {
-      listaDesenho[k].select = false;
     }
   }
   desenhaLista();
@@ -158,7 +152,9 @@ var zoomExtend = document.getElementById("zoomExtend");
 zoomExtend.addEventListener("click", zoomExtend);
 
 function setAjuda() {
-  alert("Para desenhar um objeto na tela, selecione o objeto desenhado e clique na tela os pontos onde desenha inserir o desenho.\nPara realizar uma transformação, selecione o objeto que deseja realizar a operação pela lista de objetos e então selecione a operação que deseja realizar. Para a translação, selecione dois pontos na tela, correspondentes ao vetor de translação. Para a rotação, insira os graus e clique no ponto que seja o eixo de rotação. Para a mudança de escala, insira os valores e clique no ponto do objeto onde ocorrerá a mudança.\nPara dar zoom, selecione a opção correspondente e selecione os dois pontos na tela onde deseja criar a janela.")
+  alert(
+    "Para desenhar um objeto na tela, selecione o objeto a ser desenhado e clique na tela os pontos onde deseja inserir o desenho.\nPara realizar uma transformação, selecione o objeto que deseja realizar a operação pela lista de objetos ou pelo selecionar tudo e então selecione a operação que deseja realizar. \n\tPara a translação, selecione dois pontos na tela, correspondentes ao vetor de translação. \n\tPara a rotação, insira os graus e clique no ponto que seja o eixo de rotação. \n\tPara a mudança de escala, insira os valores e clique no ponto do objeto onde ocorrerá a mudança.\nPara dar zoom, selecione a opção correspondente e selecione os dois pontos na tela onde deseja criar a janela."
+  );
 }
 
 

@@ -8,16 +8,12 @@ function limparTabela(table) {
 function criarTabela(listaDesenho) {
   limparTabela(table);
   for (let j = 0; j < listaDesenho.length; j++) {
-    console.log("aqui", listaDesenho)
+    console.log("aqui", listaDesenho);
     table.innerHTML += `
     <tr>
-    <td id = ${j} onclick=selectOne(this) >${listaDesenho[j].id + "_" + listaDesenho[j].nome}</td>
+    <td id = ${j} onclick=selectOne(this) >${listaDesenho[j].id +
+      "_" +
+      listaDesenho[j].nome}</td>
     </tr>`;
   }
 }
-
-
-
-
-
-
