@@ -8,6 +8,7 @@ class forma {
 }
 var desenhando = false;
 var listaDesenho = [];
+var listaAux = [];
 var cord = [];
 var x = 0;
 var conteudo = [];
@@ -67,7 +68,6 @@ function posicaoClique(evento) {
           break;
         case "rotacao":
           cordTranf = cord;
-          console.log("MERDAAAA ", cordTranf);
           cord = [];
           Rotacao(O);
           break;

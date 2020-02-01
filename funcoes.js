@@ -16,7 +16,6 @@ function multMatriz(a, b) {
   return m;
 }
 function Ftranslacao() {
-  console.log("Translaçãaaaaaaaaao");
   R = [];
   let M2;
   let dx = cordTranf[2] - cordTranf[0];
@@ -26,6 +25,7 @@ function Ftranslacao() {
     [0, 1, dy],
     [0, 0, 1]
   ];
+  listaAux = listaDesenho;
   for (let j = 0; j < listaDesenho.length; j++) {
     if (listaDesenho[j].select == true) {
       if (listaDesenho[j].nome == "triangulo") {
@@ -76,7 +76,7 @@ function Ftranslacao() {
 function MEscala(Sx, Sy) {
   R = [];
   let M2, M1;
-
+  listaAux = listaDesenho;
   for (let j = 0; j < listaDesenho.length; j++) {
     if (listaDesenho[j].select == true) {
       if (listaDesenho[j].nome == "triangulo") {
@@ -138,6 +138,7 @@ function Rotacao(O) {
   let M1 = [];
   let x = cordTranf[0];
   let y = cordTranf[1];
+  listaAux = listaDesenho;
   for (let j = 0; j < listaDesenho.length; j++) {
     if (listaDesenho[j].select == true) {
       if (listaDesenho[j].nome == "triangulo") {
@@ -188,7 +189,7 @@ function Rotacao(O) {
   desenhaLista();
 }
 var maxX = 0;
-var minX = 750;;
+var minX = 750;
 var maxY = 0;
 var minY = 490;
 
@@ -294,6 +295,7 @@ function pegaMaxMin() {
 function zoomExtend() {
   todos = [];
   unico = [];
+  listaAux = listaDesenho;
   for (let k = 0; k < listaDesenho.length; k++) {
     unico = {
       pegaMaxMin()

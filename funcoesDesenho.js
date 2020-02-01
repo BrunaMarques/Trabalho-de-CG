@@ -75,6 +75,7 @@ function desenhaRetangulo(context, pontos, select) {
 }
 
 function desenhaLista() {
+  listaAux = listaDesenho;
   context.clearRect(0, 0, 750, 490);
   for (let j = 0; j < listaDesenho.length; j++) {
     if (listaDesenho[j].nome == "reta") {

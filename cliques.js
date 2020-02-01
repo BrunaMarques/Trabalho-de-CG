@@ -52,10 +52,12 @@ clear.addEventListener("click", setClear);
 
 function setClear() {
   n = 0;
-  listaDesenho = []; //lembrar de limpar os nomes e id dos objetos
+  listaAux = listaDesenho;
+  listaDesenho = [];
   i = 0;
   cord = [];
   id = 0;
+
   for (let j = 0; j < listaDesenho.length; j++) {
     listaDesenho[j].select = false;
     context.strokeStyle = "black";
@@ -68,6 +70,7 @@ function setClear() {
 
 function selectOne(td) {
   i = 0;
+  listaAux = listaDesenho
   for (let k = 0; k < listaDesenho.length; k++) {
     if (listaDesenho[k].id == td.id) {
       listaDesenho[k].select = true;
@@ -84,6 +87,7 @@ function setSelectAll() {
   i = 0;
   cord = [];
   n = 0;
+  listaAux = listaDesenho;
   for (let j = 0; j < listaDesenho.length; j++) {
     listaDesenho[j].select = true;
     context.strokeStyle = "red";
@@ -156,8 +160,18 @@ function setAjuda() {
     "Para desenhar um objeto na tela, selecione o objeto a ser desenhado e clique na tela os pontos onde deseja inserir o desenho.\nPara realizar uma transformação, selecione o objeto que deseja realizar a operação pela lista de objetos ou pelo selecionar tudo e então selecione a operação que deseja realizar. \n\tPara a translação, selecione dois pontos na tela, correspondentes ao vetor de translação. \n\tPara a rotação, insira os graus e clique no ponto que seja o eixo de rotação. \n\tPara a mudança de escala, insira os valores e clique no ponto do objeto onde ocorrerá a mudança.\nPara dar zoom, selecione a opção correspondente e selecione os dois pontos na tela onde deseja criar a janela."
   );
 }
+var linhaComando = document.getElementById("linhaComando");
+linhaComando.addEventListener("submit", linhaComando);
 
-
-function linhaComando(event) {
+function linhaComando() {
   alert("aaaa")
 };
+
+document.addEventListener('keydown', function (event) {
+  if (event.ctrlKey && event.key === 'z') {
+    listaDesenho = listaAux;
+    listaAux = [];
+    desenhaLista();
+    criarTabela(listaDesenho);
+  }
+});
