@@ -135,7 +135,7 @@
     <a id="translacao">Translação</a>
     <a id="rotacao">Rotação</a>
     <a id="escala">M.Escala</a>
-    <a id="zoomExtend">Zoom</a>
+    <a id="zoom">Zoom</a>
     <a id="zoomExtend">Zoom Extend</a>
     <a id="ajuda" onclick=setAjuda()>Ajuda</a>
     <a id="selectAll">Selecionar tudo</a>
@@ -164,8 +164,9 @@
   </div>
 
   <div>
-    <form id="linhaComando">
-      <input type="text" id="linhacomando" name="linhaComando" placeholder="Input..." /> </form>
+    <form>
+      <input onsubmit="getInput();" type="text" id="linhacomando" name="linhaComando" placeholder="Input..." />
+    </form>
   </div>
 
   <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>

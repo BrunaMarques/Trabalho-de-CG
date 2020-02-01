@@ -305,7 +305,6 @@ function zoomExtend() {
   let R = [];
   let R2 = [];
 
-  console.log("AAAAAAAAAAAAAAAAAAAAAAAA");
   console.log(canvas.width);
   console.log(RV);
   todos = [];
